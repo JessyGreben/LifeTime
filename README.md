@@ -1,7 +1,7 @@
 # LifeTime
 
 ##Dev Bootcamp Phase 3 Final Project.
-###Team: Jessica Grebenschikov, Richard Santin, Rebecca Holzschuh, Katie Kennedy
+###Team: Jessica Grebenschikov, Richard Santin, Rebecca Holzschuh, Catie Kennedy
 
 ####Background: 
 
