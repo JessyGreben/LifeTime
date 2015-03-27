@@ -1,2 +1,0 @@
-class DayController < ApplicationController
-end
