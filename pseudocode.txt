@@ -1,0 +1,87 @@
+---Get step data from Jawbone:
+
+Get number of steps data from Jawbone
+
+receive json
+
+get route - data[collection/moves][c]
+
+mvp - get call every 24 hours at specified time
+redirect to post- input into database both User and Day
+run the calculate time methods - put that in database
+if logged in - display
+else don't
+
+
+---see dramatic life clock
+
+clock format - graphical format (d3) and time that has been extended.
+user can choose how they want to view (depletion or extension)
+
+default will be total amount gained overall(since beginning of jawbone data)
+dynamic time that changes on mouseover - graphical display of user history
+stretch - when user clicks clock, it toggles between total time gained and total time left (estimated)
+
++00:12(green)
+-00:12(red)
+
+the + and - should be the boldest things on the page
+
+---displaying time gained and lost
+
+1 method that calculates the time. call method for that user for that day via erb.
+
+def calculate_time(user, day)
+    return positive or negative value in seconds
+end
+
+Ruby Time methods
+
+if seconds > 60, return val in minutes
+if minutes > 60, return val in hours
+
+
+calculate time method:
+    input: user, day
+    output: time in seconds
+    steps: if steps > 600/day (m), adds 1.78 years to life. years to seconds
+
+        take average. if steps > average, add time. if steps < average, lose time
+    calculate average every day
+
+stretch - user can choose how this is displayed. either as expected time of life left or specific amount of life gained or lost
+
+on main page: your actual age today, your average longevity age over time(week, month), expected life time based on your daily activity
+
+
+---logging in and out
+
+Input: user's jawbone acct info such as username and password
+Output: json object of user data
+Steps:
+    - jawbone oauth 2.0
+    - separate call for activity
+    basic read: gives us first name, last name, profile picture
+    ext. read: age, gender, weight, height
+        mood, sleep, meal - for fun
+    1. user is redirected to jawbone auth page
+    2. send info along - client_id, scope, redirect uri
+    3. if user accepts auth, he's redirected back to our site
+    4. user will have authorization code - we will exchange auth code with access token
+        enables our app to make an https call to obtain access token from jawbone - we need to give client id, & secret.
+        then we can make api calls on behalf of the user.
+
+No decoupling, just oauth
+
+We should see if Jawbone has a button they want us to use for logging in - they do have an icon and some other stuff
+-----------------------------------FRONT END------------------------------------------
+what does the user see if logged-in?
+if not -
+    just login page
+    div with date
+    stretch - generic info on longevity
+ on logout, sends user back to index/login page
+
+ parallax scrolling on index/login page
+    sidebars - medical blog things and leaderboards
+
