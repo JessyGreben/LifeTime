@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'dbcfaker'
 gem 'faker'
 gem 'httparty'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'

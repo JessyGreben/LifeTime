@@ -5,12 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'dbcfaker'
 
 #create users
 5.times do
 	User.create!(
-		firstname: Faker::Name.firstname,
-		lastname: Faker::Name.lastname,
+		firstname: DbcFaker::Name.first_name,
+		lastname: DbcFaker::Name.last_name,
 		jid: 1 + rand(10),
 		age: 18 + rand(50),
 		life_expectancy: 2.46E9,
