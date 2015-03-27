@@ -38,3 +38,29 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'faker'
+gem 'httparty'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
+group :development, :test do
+	gem 'rspec-rails', '~> 3.0'
+	gem 'capybara'
+	gem 'shoulda-matchers', require: false
+	gem 'factory_girl_rails'
+	gem 'selenium-webdriver'
+	gem 'nyan-cat-formatter'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
