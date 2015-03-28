@@ -55,6 +55,8 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'selenium-webdriver'
 	gem 'nyan-cat-formatter'
+	gem 'better_errors'
+	gem 'binding_of_caller'
 end
 
 

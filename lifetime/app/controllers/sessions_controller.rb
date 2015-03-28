@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       @user.activities.build steps: trend[1]['m_steps']
     end
      @user.save
-     # sessions[:id] = @user.id
+     sessions[:id] = @user.id
      # end
   end
 
