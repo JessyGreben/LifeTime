@@ -6,18 +6,9 @@ $(document).ready(function() {
   })
   .done(function(response) {
     console.log("success");
-    timeData = response
-    // timeData = JSON.parse(response);
-  })
-  .always(function() {
-    console.log("complete");
-  });
-
-
-// Dimensions of sunburst.
-
-console.log(timeData)
-var width = 600,
+    timeData = function(response) {
+      console.log(response)
+    var width = 600,
     height = width,
     radius = width / 2,
     x = d3.scale.linear().range([0, 2 * Math.PI]),
@@ -58,7 +49,7 @@ var arc = d3.svg.arc()
   var nodes = partition.nodes({children: json});
 
   var path = vis.selectAll("path")
-      .data(timeData)
+      .data(response)
     .enter().append("path")
       .attr("id", function(d, i) { return "path-" + i; })
       .attr("d", arc)
@@ -344,4 +335,9 @@ function updateBreadcrumbs(nodeArray, percentageString) {
       .style("visibility", "");
 
 }
+    }
+  })
+  .always(function() {
+    console.log("complete");
+  });
 });
