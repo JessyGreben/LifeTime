@@ -5,7 +5,6 @@ $(document).ready(function() {
     dataType: 'json'
   })
   .done(function(response) {
-    console.log("success");
 var width = 600,
 height = width,
 radius = width / 2,
@@ -47,14 +46,14 @@ var arc = d3.svg.arc()
   var nodes = partition.nodes({children: json});
 
   var path = vis.selectAll("path")
-      .data(response)
+      .data(nodes)
     .enter().append("path")
       .attr("id", function(d, i) { return "path-" + i; })
       .attr("d", arc)
       .attr("fill-rule", "evenodd")
       .style("fill", colour)
       .on("click", click)
-      .on("mouseover", mouseover);
+      // .on("mouseover", mouseover);
 
 
 
