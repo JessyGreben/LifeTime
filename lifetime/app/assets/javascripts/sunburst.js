@@ -6,15 +6,13 @@ $(document).ready(function() {
   })
   .done(function(response) {
     console.log("success");
-    timeData = function(response) {
-      console.log(response)
-    var width = 600,
-    height = width,
-    radius = width / 2,
-    x = d3.scale.linear().range([0, 2 * Math.PI]),
-    y = d3.scale.pow().exponent(1.3).domain([0, 1]).range([0, radius]),
-    padding = 5,
-    duration = 1000;
+var width = 600,
+height = width,
+radius = width / 2,
+x = d3.scale.linear().range([0, 2 * Math.PI]),
+y = d3.scale.pow().exponent(1.3).domain([0, 1]).range([0, radius]),
+padding = 5,
+duration = 1000;
 
 // Remove loading image
 var div = d3.select("#sunburst");
@@ -334,10 +332,9 @@ function updateBreadcrumbs(nodeArray, percentageString) {
   d3.select("#trail")
       .style("visibility", "");
 
-}
-    }
-  })
+  }
+    })
   .always(function() {
     console.log("complete");
-  });
+  })
 });
