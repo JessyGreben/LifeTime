@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/login', :to => 'sessions#new', :as => :login
   match '/auth/jawbone/callback', :to => 'sessions#create', via: [:get, :post]
   match '/auth/failure', :to => 'sessions#failure', via: [:get, :post]
-
+  get '/logout', :to => 'sessions#destroy'
 
   resources :users do
     resources :days do
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
