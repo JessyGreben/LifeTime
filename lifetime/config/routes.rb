@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/failure'
+
+  get 'sessions/destroy'
+
+  get '/login', :to => 'sessions#new', :as => :login
+  match '/auth/jawbone/callback', :to => 'sessions#create', via: [:get, :post]
+  match '/auth/failure', :to => 'sessions#failure', via: [:get, :post]
+
+
   resources :users do
     resources :days do
       resources :activities
