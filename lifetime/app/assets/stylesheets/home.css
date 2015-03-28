@@ -1,6 +1,7 @@
 h1 {
   color: #3333CC;
   font-family: 'Quicksand', sans-serif;
+  font-size: 5em;
 }
 
 body {
@@ -63,8 +64,8 @@ body {
 }
 #motto {
   height: 100%;
-  width: 40%;
-  margin-left: 25%;
+  width: 30%;
+  margin-left: 35%;
 }
 .home_box {
   width: 100%;
@@ -78,9 +79,9 @@ body {
 .motto_content {
   margin-top: 10%;
   margin-bottom: 25%;
-  font-size: 75px;
-  font-family: lobster;
+  font-size: 2em;
   color: #99CCFF;
+  text-align: center;
 }
 .inner-fusion {
   margin: 0 auto;
@@ -89,11 +90,10 @@ body {
 #phase {
   height: 100%;
   width: 30%;
-  margin-left: 10%;
+  margin-left: 35%;
 }
 #social {
   height: 100%;
-  /*outline: cyan solid 1px;*/
   width: 30%;
   margin-left: 35%;
 }
