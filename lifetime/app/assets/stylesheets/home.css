@@ -4,15 +4,9 @@ h1 {
 }
 
 body {
-  background: url("running.jpg") no-repeat center center fixed;
-  background-size: cover;
+
   font-family: 'Quicksand', sans-serif;
 }
-
-.motto_content {
-  color: #99CCFF;
-}
-
 
 
 #arrow {
@@ -25,3 +19,81 @@ body {
   height: 90px;
 }
 
+/**{
+  outline: cyan solid 1px;
+}*/
+/*Content*/
+#parallax {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.fusion {
+  height: 550px;
+  width: 100%;
+  -webkit-box-shadow: -1px 0px 15px 9px rgba(0,0,0,0.8);
+  -moz-box-shadow: -1px 0px 15px 9px rgba(0,0,0,0.8);
+  box-shadow: -1px 0px 15px 9px rgba(0,0,0,0.8);
+  background-color: black;
+}
+#main {
+  background: transparent;
+  min-height: 400px;
+  height: 1100px;
+}
+#mountain {
+  background: transparent;
+  min-height: 400px;
+  height: 1100px;
+}
+#valley {
+  background: transparent;
+  min-height: 400px;
+  height: 1100px;
+}
+#river {
+  background: transparent;
+  min-height: 400px;
+  height: 1100px;
+}
+#player {
+  margin-top: 2%;
+  margin-right: 5%;
+  float: right;
+}
+#motto {
+  height: 100%;
+  width: 40%;
+  margin-left: 25%;
+}
+.home_box {
+  width: 100%;
+  height: 100%;
+  display: table;
+  vertical-align: middle;
+  padding-top: 45px;
+  padding-bottom: 25px;
+  table-layout: fixed;
+}
+.motto_content {
+  margin-top: 10%;
+  margin-bottom: 25%;
+  font-size: 75px;
+  font-family: lobster;
+  color: #99CCFF;
+}
+.inner-fusion {
+  margin: 0 auto;
+  height: 100%;
+}
+#phase {
+  height: 100%;
+  width: 30%;
+  margin-left: 10%;
+}
+#social {
+  height: 100%;
+  /*outline: cyan solid 1px;*/
+  width: 30%;
+  margin-left: 35%;
+}
