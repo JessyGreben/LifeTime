@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   get '/login', :to => 'sessions#new', :as => :login
-  match '/auth/jawbone/callback', :to => 'sessions#create'
-  match '/auth/failure', :to => 'sessions#failure'
+  match '/auth/jawbone/callback', :to => 'sessions#create', via: [:get, :post]
+  match '/auth/failure', :to => 'sessions#failure', via: [:get, :post]
+
 
   resources :users do
     resources :days do
