@@ -1,49 +1,69 @@
+require 'jawbone'
+require 'awesome_print'
+
 class SessionsController < ApplicationController
   def new
   end
 
   def create
-    auth_hash = request.env['omniauth.auth']
+    p auth_hash = request.env['omniauth.auth']
+    access_token = auth_hash["credentials"]["token"]
 
-    p refresh_token = auth_hash["credentials"]["refresh_token"]
-    p token = auth_hash["credentials"]["token"]
+    @authorization = nil
 
-    p first_name = auth_hash["info"]["first_name"]
-    p last_name = auth_hash["info"]["last_name"]
-    p last_name = auth_hash["info"]["photo"]  #returns a jpeg
-    p provider = auth_hash["provider"]
-    p uid = auth_hash["uid"]
+    # @authorization = Authorization.where("provider = #{auth_hash["provider"]} AND uid = #{auth_hash["uid"]}").first
 
-    p code = auth_hash[
-    p auth_hash
-
-    # @result = HTTParty.post("https://jawbone.com/auth/oauth2/token?grant_type=authorization_code&client_id=o4Hz7i2NVsw&client_secret=6574706ac3ec1456f97ebd6f5af51de7e8df711c&code=mGKV_178jYyG7R7zX-mOdzFgyTmy-xwRX-2u4kQEkCV0QaeLBfiEgN0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A")
-
-
-
-    # @authorization = Authorization.where(provider: auth_hash["provider"] AND uid: auth_hash["uid"]).first
- 
     # if @authorization
     #   @user = User.find(@authorization.user_id)
     #   sessions[:id] = @user.id
+    #   render '/'
     # else
-     # user = User.new :name => auth_hash["user_info"]["name"], :email => auth_hash["user_info"]["email"]
-     # user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
-     # user.save
+       get_trends(access_token)
+     @user = User.new :firstname => auth_hash["info"]["first_name"], :lastname => auth_hash["info"]["last_name"], :image => auth_hash["info"]["photo"], :age => @age, :weight_kgs => @weight, :height_meters => @height, :gender => @gender
+     @user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"],:access_token => auth_hash["credentials"]["token"], :refresh_token => auth_hash["credentials"]["refresh_token"]
+      @trends_response['data']['data'].each do |trend|
+      @user.days.build date: trend[0]
+      @user.activities.build steps: trend[1]['m_steps']
+    end
+     @user.save
+     session[:id] = @user.id
+     # end
+  end
 
-     ###Update above info when we know what we're doing
- 
-   # render :text => @result.inspect
+  def get_trends(access_token)
+    @trends_response = HTTParty.get("https://jawbone.com/nudge/api/v.1.1/users/@me/trends?num_buckets=100", :headers => { "Accept" => "application/json", "Host" => "jawbone.com", "Authorization" => "Bearer #{access_token}" })   
+
+    @weight = (@trends_response['data']['data'][0][1]['weight']).to_i
+    @height = (@trends_response['data']['data'][0][1]['height']).to_f
+    @age = (@trends_response['data']['data'][0][1]['age']).to_i
+    @gender = (@trends_response['data']['data'][0][1]['gender'])
+
+  end
+
+  
+    
+
+  # def failure
   # end
 
-  end
+  # def destroy
+  # 	session[:id] = nil
+  # 	redirect_to root_path  
+  # end
 
-  def failure
-  end
-
-  def destroy
-  	session[:id] = nil
-  	redirect_to root_path
-    
-  end
 end
+# def trends(params={})
+#       get_helper("users/@me/trends", params)
+#     end
+
+# def get_helper(path, params={})
+  #     path = "/" + path unless path[0] == '/'
+  #     url = BASE_URL + path
+  #     stringified_params = params.collect do |k, v|
+  #       "#{k}=#{v}"
+  #     end.sort * '&'
+  #     full_url = url + "?" + stringified_params
+  #     response = self.class.get full_url,
+  #       { :headers => { "Authorization" => "Bearer #{token}" } }
+  #     response.parsed_response
+  #   end

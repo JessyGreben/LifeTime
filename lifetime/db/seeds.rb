@@ -12,10 +12,7 @@ require 'dbcfaker'
 	User.create!(
 		firstname: DbcFaker::Name.first_name,
 		lastname: DbcFaker::Name.last_name,
-		jid: 1 + rand(10),
 		age: 18 + rand(50),
-		life_expectancy: 2.46E9,
-		life_gained_lost: rand(-86400..86400),
 		gender: [true, false].sample,
 		weight_kgs: rand(45..115),
 		height_meters: (1.25..2.5),
@@ -31,6 +28,9 @@ num = (1..100).to_a
 	Day.create!(
 		user_id: 1,
 		activity_id: num.shift,
+		life_expectancy: 2.46E9,
+		life_gained_lost: rand(-86400..86400),
+		total_lgl: rand(-86400..86400),
 		date: Faker::Time.between(300.days.ago, Time.now)
 	)
 
