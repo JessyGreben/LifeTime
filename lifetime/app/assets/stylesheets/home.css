@@ -1,8 +1,27 @@
 h1 {
-  color: #6600FF;
+  color: #3333CC;
+  font-family: 'Quicksand', sans-serif;
 }
 
 body {
   background: url("running.jpg") no-repeat center center fixed;
   background-size: cover;
+  font-family: 'Quicksand', sans-serif;
 }
+
+.motto_content {
+  color: #99CCFF;
+}
+
+
+
+#arrow {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  /*border: 6px solid green;*/
+  width: 90%;
+  max-width: 100px;
+  height: 90px;
+}
+
