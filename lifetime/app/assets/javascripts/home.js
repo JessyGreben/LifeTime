@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
-$('#lifetime').on('click', function(event){
-  event.preventDefault();
-  console.log("heyo");
-})
+  $('#lifetime').scroll(function(event){
+    event.preventDefault();
+    console.log(this);
+    $('#lifetime').each(function(){
+      $(this).show();
+    });
+
+  })
 
 });
