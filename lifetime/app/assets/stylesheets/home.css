@@ -90,12 +90,16 @@ span {
 }
 
 #lifetime {
-  margin-top: 40%;
+/*  margin-top: 35%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 300px;
+  width: 300px;*/
   border: 6px solid black;
   background-color: #99CCFF;
   font-family: 'Quicksand', sans-serif;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  opacity: 0;
 }
