@@ -9,7 +9,7 @@ nav ul {
   list-style-type: none;
   text-align: center;
   padding: 10px;
-  width: 100%;
+  width: 90%;
 }
 nav ul li {
   display: inline-block;
@@ -31,20 +31,21 @@ nav a:hover {
 }
 /*Drawers*/
 .menu-left {
+  flex-direction: row:ltr;
   height:100%;
   display:none;
   background-color: #323949;
   color: white;
-  position: absolute;
+  position: fixed;
   left:0;
   z-index: 1;
   right:auto;
   bottom: 0;
   width:0px;
   overflow: auto;
-  animation-duration: 1s;
+  animation-duration: 1s; 
   -webkit-animation-duration: 1s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; 
   -webkit-animation-timing-function: ease-in-out;
   -webkit-box-shadow: 8px 0px 12px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 8px 0px 12px 0px rgba(0,0,0,0.75);
@@ -60,28 +61,36 @@ nav a:hover {
 }
 
 .menu-right {
-  height: 100%;
+  order: 1;
+  display: -webkit-flex:;
+  -webkit-flex-derction: row-reverse;
+  height: 100%;   
   display:none;
+  /*flex-direction: row;*/
   background-color: #323949;
   color: white;
-  position: absolute;
+  position: fixed;
   right:0;
   z-index: 1;
   left:auto;
   bottom: 0;
   width:0px;
   overflow: auto;
-  animation-duration: 1s;
+  animation-duration: 1s; 
   -webkit-animation-duration: 1s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; 
   -webkit-animation-timing-function: ease-in-out;
   -webkit-box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
   box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
+  text-align:center;
+  font-family: 'Quicksand', sans-serif;
 }
 .user_settings{
   height: 75px;
   width: 75px;
+  /*font-family: 'Quicksand', sans-serif;*/
+  font-family: Helvetica;
 }
 #user_name {
   margin-top: 10%;
@@ -92,5 +101,9 @@ nav a:hover {
   float: left;
   margin-top: 10%;
   margin-left: 10%;
+}
+#profile_image {
+  width:50%; 
+  height:50%;
 }
 /*HEADER ENDS*/

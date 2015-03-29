@@ -1,6 +1,11 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
+h1 {
+  color: #3333CC;
+  font-family: 'Quicksand';
+  font-size: 5em;
+}
 
 span {
   font-size: 10px;
