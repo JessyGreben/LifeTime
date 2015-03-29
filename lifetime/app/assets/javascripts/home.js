@@ -25,3 +25,6 @@ $(document).ready(function() {
 
 
 });
+
+//      https://localhost:3000/auth/jawbone
+//      ProximaRegular
