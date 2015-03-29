@@ -41,41 +41,43 @@ class Day < ActiveRecord::Base
   def display_total_lgl(param=self.total_lgl, display_value=[])
     
     total = param.abs
-    if total > 31556926.0
-      divmod_arr = total.divmod(31556926.0)
-      display_value << divmod_arr[0] << "years"
-      x = divmod_arr[1]
-      display_total_lgl(x, display_value)
+    if total > 31556926
+      get_next_time_value(get_divmod_array(total, 31556926), add_time_value_to_display(get_divmod_array(total, 31556926), 'years', display_value))
     elsif total > 86400
-      divmod_arr = total.divmod(86400.0)
-      display_value << divmod_arr[0] << "days"
-      x = divmod_arr[1]
-      display_total_lgl(x, display_value)
+      get_next_time_value(get_divmod_array(total, 86400), add_time_value_to_display(get_divmod_array(total, 86400), 'days', display_value))
     elsif total > 3600 
-      divmod_arr = total.divmod(3600.0)
-      display_value << divmod_arr[0] << "hours"
-      x = divmod_arr[1]
-      display_total_lgl(x, display_value)
+      get_next_time_value(get_divmod_array(total, 3600), add_time_value_to_display(get_divmod_array(total, 3600), 'hours', display_value))
     elsif total > 60 
-      divmod_arr = total.divmod(60.0)
-      display_value << divmod_arr[0] << "mins"
-      x = divmod_arr[1]
-      display_total_lgl(x, display_value) 
+      get_next_time_value(get_divmod_array(total, 60), add_time_value_to_display(get_divmod_array(total, 60), 'mins', display_value))
     else
       display_value << total << "secs"
     end
 
-    display_value.unshift(display_pos_neg_lgl(3333)).join(' ')
+    display_value.join(' ')
   end
 
-  def display_pos_neg_lgl(param=self.total_lgl)
-    if param > 0 
-      gain_lost = "+"
-    else
-      gain_lost = "-"
-    end
-    gain_lost
-  end 
+
+  def get_divmod_array(total, number)
+    divmod_arr = total.divmod(number.to_f)
+  end
+
+  def add_time_value_to_display(divmod_arr, time_unit, display_value)
+    display_value << divmod_arr[0] << time_unit
+  end
+
+  def get_next_time_value(divmod_arr, display_value)
+    display_total_lgl(divmod_arr[1], display_value)
+  end
+
+  # def display_pos_neg_lgl(param=self.total_lgl)
+  #   if param > 0 
+  #     gain_lost = "+"
+  #   else
+  #     gain_lost = "-"
+  #   end
+  # .unshift(display_pos_neg_lgl(3333))
+  #   gain_lost
+  # end 
 
 
 
