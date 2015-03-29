@@ -8,26 +8,26 @@ class SessionsController < ApplicationController
   def create
     p auth_hash = request.env['omniauth.auth']
     access_token = auth_hash["credentials"]["token"]
+    p auth_hash["uid"]
 
-    @authorization = nil
+    @authorization = Authorization.where("uid = '#{auth_hash["uid"]}'").first
 
-    # @authorization = Authorization.where("provider = #{auth_hash["provider"]} AND uid = #{auth_hash["uid"]}").first
-
-    # if @authorization
-    #   @user = User.find(@authorization.user_id)
-    #   sessions[:id] = @user.id
-    #   render '/'
-    # else
-       get_trends(access_token)
-     @user = User.new :firstname => auth_hash["info"]["first_name"], :lastname => auth_hash["info"]["last_name"], :image => auth_hash["info"]["photo"], :age => @age, :weight_kgs => @weight, :height_meters => @height, :gender => @gender
-     @user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"],:access_token => auth_hash["credentials"]["token"], :refresh_token => auth_hash["credentials"]["refresh_token"]
+    if @authorization
+      @user = User.find(@authorization.user_id)
+      session[:id] = @user.id 
+      redirect_to "/users/1"
+    else
+      get_trends(access_token)
+      @user = User.new :firstname => auth_hash["info"]["first_name"], :lastname => auth_hash["info"]["last_name"], :image => auth_hash["info"]["photo"], :age => @age, :weight_kgs => @weight, :height_meters => @height, :gender => @gender
+      @user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"],:access_token => auth_hash["credentials"]["token"], :refresh_token => auth_hash["credentials"]["refresh_token"]
       @trends_response['data']['data'].each do |trend|
-      @user.days.build date: trend[0]
-      @user.activities.build steps: trend[1]['m_steps']
+        @user.days.build date: trend[0]
+        @user.activities.build steps: trend[1]['m_steps']
+      end
+      @user.save
+      session[:id] = @user.id
     end
-     @user.save
-     session[:id] = @user.id
-     # end
+     
   end
 
   def get_trends(access_token)
