@@ -19,8 +19,9 @@ $(document).ready(function() {
   // });
 
   $(document).on('scroll', function (e) {
-      $('#lifetime').css('opacity', ($(document).scrollTop() / 500));
+      $('#lifetime').css('opacity', ($(document).scrollTop() / 300));
   });
+
 
 
 });
