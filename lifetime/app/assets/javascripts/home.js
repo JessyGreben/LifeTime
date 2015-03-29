@@ -19,7 +19,7 @@ $(document).ready(function() {
   // });
 
   $(document).on('scroll', function (e) {
-      $('#lifetime').css('opacity', ($(document).scrollTop() / 300));
+      $('#lifetime').css('opacity', ($(document).scrollTop() / 200));
   });
 
 

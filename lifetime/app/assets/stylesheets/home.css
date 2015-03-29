@@ -90,7 +90,7 @@ span {
 }
 
 #lifetime {
-  margin-top: 50%;
+  margin-top: 30%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -104,5 +104,5 @@ span {
   background-color: #99CCFF;*/
   opacity: 0;
   font-family: 'Quicksand', sans-serif;
-  font-size: 8em;
+  font-size: 10em;
 }
