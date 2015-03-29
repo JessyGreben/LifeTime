@@ -82,9 +82,10 @@ span {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 300px;
+  width: 30%;
   border: 6px solid black;
-  background-color: #99CCFF;
+  /*background-color: #99CCFF;*/
+  background-color: white;
   font-family: 'Quicksand', sans-serif;
 }
 
