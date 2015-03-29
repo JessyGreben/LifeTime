@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
   def create
     p auth_hash = request.env['omniauth.auth']
     access_token = auth_hash["credentials"]["token"]
-    p auth_hash["uid"]
 
     @authorization = Authorization.where("uid = '#{auth_hash["uid"]}'").first
 
@@ -20,19 +19,19 @@ class SessionsController < ApplicationController
 
     else
       get_trends(access_token)
-      @user = User.new :firstname => auth_hash["info"]["first_name"], :lastname => auth_hash["info"]["last_name"], :image => auth_hash["info"]["photo"], :age => @age, :weight_kgs => @weight, :height_meters => @height, :gender => @gender
-      @user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"],:access_token => auth_hash["credentials"]["token"], :refresh_token => auth_hash["credentials"]["refresh_token"]
-      @user.save
-      # p @trends_response
-      # ap @trends_response['data']['data']
+      @user = User.create(:firstname => auth_hash["info"]["first_name"], :lastname => auth_hash["info"]["last_name"], :image => auth_hash["info"]["photo"], :age => @age, :weight_kgs => @weight, :height_meters => @height, :gender => @gender)
+      Authorization.create(:provider => auth_hash["provider"], :uid => auth_hash["uid"],:access_token => auth_hash["credentials"]["token"], :refresh_token => auth_hash["credentials"]["refresh_token"], user_id: @user.id)
+      
+      
       @trends_response['data']['data'].each do |day_data|
         p "im in the loop"
         p steps = (day_data[1]['m_steps']).to_i
         p day_data[1]['m_steps']
         user_activity = Activity.create(steps: steps)
-        user_day = Day.create(user_id: @user.id, date: day_data[0], activity_id: user_activity.id)
-        # user_day = @user.day.build date: day_data[0]
 
+        user_day = Day.create(user_id: @user.id, date: day_data[0], activity_id: user_activity.id)
+
+        # user_day = @user.day.build date: day_data[0]
         # user_day.activity.build steps: day_data[1]['m_steps']
         # user_day.save
         # p user_day
