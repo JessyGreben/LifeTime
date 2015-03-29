@@ -109,3 +109,7 @@ nav a:hover {
   height:50%;
 }
 /*HEADER ENDS*/
+
+#clock {
+  color: red;
+}
