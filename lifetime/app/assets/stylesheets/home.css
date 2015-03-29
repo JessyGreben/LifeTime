@@ -40,6 +40,7 @@ span {
   background: transparent;
   min-height: 400px;
   height: 1100px;
+  padding-top: 10px;
 }
 #mountain {
   background: transparent;
@@ -74,3 +75,22 @@ span {
   height: 100%;
 }
 
+#login {
+  margin-top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 300px;
+  border: 6px solid black;
+  background-color: #99CCFF;
+}
+
+#lifetime {
+  margin-top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 300px;
+  border: 6px solid black;
+  background-color: #99CCFF;
+}
