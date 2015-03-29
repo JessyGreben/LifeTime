@@ -15,7 +15,9 @@ class SessionsController < ApplicationController
     if @authorization
       @user = User.find(@authorization.user_id)
       session[:id] = @user.id 
+      
       redirect_to "/users/1"
+
     else
       get_trends(access_token)
       @user = User.new :firstname => auth_hash["info"]["first_name"], :lastname => auth_hash["info"]["last_name"], :image => auth_hash["info"]["photo"], :age => @age, :weight_kgs => @weight, :height_meters => @height, :gender => @gender
