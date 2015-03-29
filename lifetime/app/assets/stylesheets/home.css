@@ -47,21 +47,6 @@ span {
   height: 1100px;
   padding-top: 10px;
 }
-#valley {
-  background: transparent;
-  min-height: 400px;
-  height: 1100px;
-}
-#river {
-  background: transparent;
-  min-height: 400px;
-  height: 1100px;
-}
-#player {
-  margin-top: 2%;
-  margin-right: 5%;
-  float: right;
-}
 #motto {
   height: 100%;
   width: 90%;
@@ -88,13 +73,4 @@ span {
   margin: 0 auto;
   height: 100%;
 }
-#phase {
-  height: 100%;
-  width: 30%;
-  margin-left: 35%;
-}
-#social {
-  height: 100%;
-  width: 30%;
-  margin-left: 35%;
-}
+
