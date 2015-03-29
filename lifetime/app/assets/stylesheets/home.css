@@ -45,6 +45,7 @@ span {
   background: transparent;
   min-height: 400px;
   height: 1100px;
+  padding-top: 10px;
 }
 #valley {
   background: transparent;
