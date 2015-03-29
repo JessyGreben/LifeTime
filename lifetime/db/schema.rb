@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328221445) do
+ActiveRecord::Schema.define(version: 20150329012609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20150328221445) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "life_expectancy"
-    t.integer  "life_gained_lost"
-    t.integer  "total_lgl"
+    t.integer  "life_gained_lost", default: 0
+    t.integer  "total_lgl",        default: 0
   end
 
   add_index "days", ["activity_id"], name: "index_days_on_activity_id", using: :btree
