@@ -57,6 +57,10 @@ class Day < ActiveRecord::Base
   end
 
 
+  def get_next_time_value(divmod_arr, display_value)
+    display_total_lgl(divmod_arr[1], display_value)
+  end
+  
   def get_divmod_array(total, number)
     divmod_arr = total.divmod(number.to_f)
   end
@@ -65,9 +69,6 @@ class Day < ActiveRecord::Base
     display_value << divmod_arr[0] << time_unit
   end
 
-  def get_next_time_value(divmod_arr, display_value)
-    display_total_lgl(divmod_arr[1], display_value)
-  end
 
   # def display_pos_neg_lgl(param=self.total_lgl)
   #   if param > 0 
