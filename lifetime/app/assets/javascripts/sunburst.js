@@ -24,10 +24,6 @@ var vis = div.append("svg")
     .append("g")
     .attr("transform", "translate(" + [radius + padding, radius + padding] + ")");
 
-// let the user know that the diagram is zoomable
-div.append("p")
-    .attr("id", "intro")
-    .text("Click to zoom!");
 
 // setup the partitions variable
 var partition = d3.layout.partition()
