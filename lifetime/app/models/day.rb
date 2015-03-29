@@ -3,14 +3,10 @@ class Day < ActiveRecord::Base
   belongs_to :activity
 
   before_create :set_life_expectancy
-  before_save :calculate_life_expectancy, :calculate_lgl, :calculate_total_lgl 
+  after_create :calculate_life_expectancy, :calculate_lgl
 
   def set_life_expectancy
   	self.life_expectancy = 79
-  end
-
-  def calculate_life_expectancy
-  	self.life_expectancy + self.total_lgl
   end
 
   def calculate_lgl
@@ -22,6 +18,7 @@ class Day < ActiveRecord::Base
   	else todays_steps >10000
   		self.life_gained_lost = 4921 #in seconds
   	end
+  	calculate_total_lgl
   end
 
   def calculate_total_lgl
@@ -31,5 +28,9 @@ class Day < ActiveRecord::Base
   		days_lgl_array << day.life_gained_lost
   	end
   	days_lgl_array.reduce(:+)
+  end
+
+  def calculate_life_expectancy
+  	(self.life_expectancy ||= 79) + self.total_lgl
   end
 end
