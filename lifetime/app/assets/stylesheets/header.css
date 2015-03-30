@@ -62,6 +62,12 @@ nav a:hover {
   font-family: 'Quicksand', sans-serif;
 }
 
+#setting{
+  margin-left: 8%;
+  margin-right: 8%;
+  list-style-type: none;
+}
+
 .dark {
   background-color: #323949;
 }
@@ -121,7 +127,7 @@ nav a:hover {
   height:50%;
 }
 /*HEADER ENDS*/
-
+/*CLOCK BEGINS*/
 #clock {
   color: black;
   font-size: 90px;
@@ -133,12 +139,14 @@ nav a:hover {
   font-family: 'Arimo', sans-serif;
 }
 
-#setting{
-  margin-left: 8%;
-  margin-right: 8%;
-  list-style-type: none;
+#plus {
+  color: green;
 }
 
+#minus {
+  color: red;
+}
+/*CLOCK ENDS*/
 
 
 
