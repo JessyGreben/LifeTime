@@ -2,8 +2,20 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
 
-  
+  describe 'create method' do
+    before(:each) do
+      @new_user = User.create(:firstname => "moo", :lastname => "woof", :image => "wwwwghuorhfwouh", :age => 13, :weight_kgs => 400, :height_meters => 3.65, :gender => true)
+      @new_auth = Authorization.create(:provider => 'jawbone', :uid => '378349782589439804',:access_token => "wehifehefhkw", :refresh_token => "gehefuihawduwda", user_id: @new_user.id)
+      @new_activity = Activity.create(steps: steps)
+      @new_day = Day.create(user_id: @new_user.id, date: day_data[0], activity_id: @new_activity.id)
+    end
 
+    after(:each) do
+      @new_user.destroy
+      @new_auth.destroy
+      @new_activity.destroy
+      @new_day.destroy
+    end
   describe "get_trends method" do
 
     it "assigns the @trends_response instance varibale" do
@@ -27,20 +39,6 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe 'create method' do
-    before(:each) do
-      @new_user = User.create(:firstname => "moo", :lastname => "woof", :image => "wwwwghuorhfwouh", :age => 13, :weight_kgs => 400, :height_meters => 3.65, :gender => true)
-      @new_auth = Authorization.create(:provider => 'jawbone', :uid => '378349782589439804',:access_token => "wehifehefhkw", :refresh_token => "gehefuihawduwda", user_id: @new_user.id)
-      @new_activity = Activity.create(steps: steps)
-      @new_day = Day.create(user_id: @new_user.id, date: day_data[0], activity_id: @new_activity.id)
-    end
-
-    after(:each) do
-      @new_user.destroy
-      @new_auth.destroy
-      @new_activity.destroy
-      @new_day.destroy
-    end
 
     it "assigns auth_token variable" do
       expect(auth_hash).to be_a_kind_of(OmniAuth::AuthHash)

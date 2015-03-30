@@ -1,6 +1,6 @@
 class Day < ActiveRecord::Base
   belongs_to :user
-  belongs_to :activity
+  belongs_to :activity, dependent: :destroy
 
   before_create :set_life_expectancy
   after_create :calculate_lgl, :calculate_life_expectancy 
