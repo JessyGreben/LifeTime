@@ -19,7 +19,6 @@ nav ul li {
 nav a {
   text-decoration: none;
   color: #fff;
-  font-family: Arial;
 }
 
 nav a:hover {
@@ -109,3 +108,34 @@ nav a:hover {
   height:50%;
 }
 /*HEADER ENDS*/
+
+#clock {
+  color: black;
+  font-size: 6em;
+  margin-right: auto;
+  margin-left: auto;
+  /*border: 2px solid black;*/
+  width: 80%;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
