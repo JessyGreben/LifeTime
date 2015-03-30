@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log('88888888888');
   $('.open-left').on('click', function(e) {
     e.preventDefault();
     if ($('.menu-left').css('width') == '0px') {
@@ -15,7 +16,39 @@ $(document).ready(function() {
       closeRightMenu();
     }
   });
+
+    var chart = function(lgl) { c3.generate({
+      bindto: '.chart',
+      data: {
+        columns: [
+            lgl,
+        ],
+        type: 'step' 
+        },
+        axis: {
+          y: {
+            label: {
+              text: 'Life gained or lossed (mins)',
+              position: 'outer-middle'
+            }
+          }
+        }    
+      });
+    }
+
+    var userId = $('#clock').data().id
+    $.ajax({
+      url: '/api/users/'+ userId +'/steps',
+      type: 'get'
+    })
+    .done(function(serverResponse) {
+      chart(serverResponse);
+    })
+    .fail(function() {
+      console.log("error");
+    });
 });
+
 // Right Drawer
 var openRightMenu = function(){
   $('.menu-right').show();

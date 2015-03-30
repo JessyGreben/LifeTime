@@ -7,4 +7,6 @@ class Api::DaysController < ApplicationController
       render json: {data: @data, steps: @steps}
     # end
   end
+
+  
 end

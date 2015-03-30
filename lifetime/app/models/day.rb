@@ -82,7 +82,4 @@ class Day < ActiveRecord::Base
     gain_lost
   end 
 
-
-
-
 end
