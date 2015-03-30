@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 	  	return "Female"
 	  else
 	  	return "Male"
-	  end 
+	  end
 	end
 end
 
