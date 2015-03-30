@@ -20,11 +20,13 @@ nav ul li {
 
 nav a {
   text-decoration: none;
-  color: #fff;
+  font-family: 'Quicksand', sans-serif;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  /*text-decoration: none;*/
+  transform: scale(1.5);
+  transition: all .8s ease-in-out;
 }
 
 .logo {
