@@ -1,20 +1,21 @@
 <!-- LEFT DRAWER -->
 <div class="menu-left">
   <div>
-    <h1 style="text-align:center;">Motivation</h1>
-    <div class="social">
-    </div>
-    <ul id="setting">
+    <ul id="left_side_bar_content">
+      <h1 style="text-align:center;">Daily Goal</h1>
+      <li class="li">goal</li>
     </br>
-      <li><%= @user.motivational_quote %></li>
+      <h1 style="text-align:center;">Motivation</h1>
+      <li class="li"><%= @user.motivational_quote %></li>
+    </br></br>
+      <h1 style="text-align:center;">Resources</h1>
+      <li class="li"><%= @user.resource[0..-1] %></li>
+      <li class="li"><%= @user.resource[0..-1] %></li>
+    </br></br>
+      <h1 style="text-align:center;">Tips</h1>
+      <li class="li"><%= @user.just_the_tip[0..-1] %></li>
+      <li class="li"><%= @user.just_the_tip[0..-1] %></li>
     </br>
-      <li><%= @user.motivational_quote %></li>
-      </br></br>
-      <li><%= @user.resource[0] %></li>
-      <li><a href=<%= @user.resource[1] %>></a></li>
-      </br></br>
-      <li><%= @user.just_the_tip[0] %></li>
-      <li><a href="<%= @user.just_the_tip[1] %>"></a></li>
     </ul>
   </div>
 </div>
@@ -44,9 +45,8 @@
   <div>
     <h1><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h1>
       <img id="profile_image" src="http://jawbone.com/<%= @user.image %>" ></br>
-    <div class="user_settings">
-    </div>
     <ul id="user_info">
+    </br>
       <li><h2>Age: <%= @user.age %></h2></li></br>
       <li><h2>Gender: <%= @user.set_gender %></h2></li></br>
       <li><h2>Weight: <%= @user.weight %> lbs</h2></li></br>
