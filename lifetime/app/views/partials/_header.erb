@@ -9,13 +9,15 @@
       <li class="li"><%= @user.motivational_quote %></li>
     </br></br>
       <h1 style="text-align:center;">Resources</h1>
-      <li class="li"><%= @user.resource[0..-1] %></li>
-      <li class="li"><%= @user.resource[0..-1] %></li>
+      <li class="li"><%= @user.resource_title %></li>
+      </br>
+      <li class="li"><%= @user.resource_link %></li>
     </br></br>
       <h1 style="text-align:center;">Tips</h1>
-      <li class="li"><%= @user.just_the_tip[0..-1] %></li>
-      <li class="li"><%= @user.just_the_tip[0..-1] %></li>
-    </br>
+      <li class="li"><%= @user.just_the_tip_title %></li>
+      </br>
+      <li class="li"><%= @user.just_the_tip_link %></li>
+    </br></br>
     </ul>
   </div>
 </div>

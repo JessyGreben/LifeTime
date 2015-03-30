@@ -116,9 +116,7 @@ nav a:hover {
 /*CLOCK ENDS*/
 
 .li {
-  width: 100%;
   text-align: center;
-  position: relative;
 }
 
 #left_side_bar_content{
@@ -128,6 +126,7 @@ nav a:hover {
   text-align: center;
   overflow-y: scroll;
   overflow-x: hidden;
+  width: 80%;
 }
 
 

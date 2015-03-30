@@ -31,12 +31,20 @@ class User < ActiveRecord::Base
 		DbcFaker::Quote.quote
 	end
 
-	def resource
-		DbcFaker::Resource.resource
+	def resource_title
+		DbcFaker::Resource.title
 	end
 
-	def just_the_tip
+	def resource_link
+		DbcFaker::Resource.link
+	end
+
+	def just_the_tip_title
 		DbcFaker::Tip.title
+	end
+
+	def just_the_tip_link
+		DbcFaker::Tip.link
 	end
 end
 
