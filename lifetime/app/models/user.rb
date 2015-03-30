@@ -28,7 +28,15 @@ class User < ActiveRecord::Base
 	end
 
 	def motivational_quote
-		DbcFaker::Quote.quote 
+		DbcFaker::Quote.quote
+	end
+
+	def resource
+		DbcFaker::Resource.resource
+	end
+
+	def just_the_tip
+		DbcFaker::Tip.title
 	end
 end
 

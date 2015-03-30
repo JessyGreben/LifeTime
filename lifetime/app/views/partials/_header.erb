@@ -6,11 +6,15 @@
     </div>
     <ul id="setting">
     </br>
-    </br>
       <li><%= @user.motivational_quote %></li>
     </br>
-    </br>
       <li><%= @user.motivational_quote %></li>
+      </br></br>
+      <li><%= @user.resource[0] %></li>
+      <li><a href=<%= @user.resource[1] %>></a></li>
+      </br></br>
+      <li><%= @user.just_the_tip[0] %></li>
+      <li><a href="<%= @user.just_the_tip[1] %>"></a></li>
     </ul>
   </div>
 </div>
