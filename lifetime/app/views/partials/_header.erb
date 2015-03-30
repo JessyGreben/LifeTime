@@ -3,20 +3,16 @@
   <div>
     <ul id="left_side_bar_content">
       <h1 style="text-align:center;">Daily Goal</h1>
-      <li class="li">goal</li>
+      <h2>goal</h2>
     </br>
       <h1 style="text-align:center;">Motivation</h1>
-      <li class="li"><%= @user.motivational_quote %></li>
+      <h2><%= @user.motivational_quote %></h2>
     </br></br>
       <h1 style="text-align:center;">Resources</h1>
-      <li class="li"><%= @user.resource_title %></li>
-      </br>
-      <li class="li"><%= @user.resource_link %></li>
+      <h2><span><a href="<% @user.resource_link %>"><%= @user.resource_title %></a></span></h2>
     </br></br>
       <h1 style="text-align:center;">Tips</h1>
-      <li class="li"><%= @user.just_the_tip_title %></li>
-      </br>
-      <li class="li"><%= @user.just_the_tip_link %></li>
+      <h2><span><a href="<% @user.just_the_tip_link %>"><%= @user.just_the_tip_title %></a></span></h2>
     </br></br>
     </ul>
   </div>
@@ -33,7 +29,7 @@
       </li>
       <li>
         <div class="open-right">
-          <a href="#">Profile</span></a>
+          <a href="#">Profile</a>
         </div>
       </li>
       <li>

@@ -115,9 +115,6 @@ nav a:hover {
 }
 /*CLOCK ENDS*/
 
-.li {
-  text-align: center;
-}
 
 #left_side_bar_content{
   margin-left: 8%;
@@ -129,6 +126,9 @@ nav a:hover {
   width: 80%;
 }
 
+span a:hover {
+  text-decoration: underline;
+}
 
 
 
