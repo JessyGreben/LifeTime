@@ -33,7 +33,7 @@ class Day < ActiveRecord::Base
 
   def calculate_life_expectancy
     total_lgl_in_seconds = self.total_lgl
-    total_lgl_in_years = total_lgl_in_seconds / 31556926.0 #seconds in a year
+    total_lgl_in_years = total_lgl_in_seconds / 31556926 #seconds in a year
     new_expectancy = self.life_expectancy + total_lgl_in_years
   	self.update_attributes(life_expectancy: new_expectancy)
   end
@@ -53,7 +53,10 @@ class Day < ActiveRecord::Base
       display_value << total << "secs"
     end
 
-    display_value.join(' ')
+    timer = display_value.join(' ')
+    display_pos_neg + " " + timer
+    # timer.display_pos_neg
+    
   end
 
 
@@ -70,15 +73,14 @@ class Day < ActiveRecord::Base
   end
 
 
-  # def display_pos_neg_lgl(param=self.total_lgl)
-  #   if param > 0 
-  #     gain_lost = "+"
-  #   else
-  #     gain_lost = "-"
-  #   end
-  # .unshift(display_pos_neg_lgl(3333))
-  #   gain_lost
-  # end 
+  def display_pos_neg(param=self.total_lgl)
+    if param > 0 
+      gain_lost = "+"
+    else
+      gain_lost = "-"
+    end
+    gain_lost
+  end 
 
 
 

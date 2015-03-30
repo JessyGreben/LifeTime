@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
 	def feet_and_inches(inches)
 	  feet_inches = inches.divmod(12)
-	  puts "#{feet_inches[0]}'#{feet_inches[1]}\""
+	  "#{feet_inches[0]}'#{feet_inches[1]}\""
 	end
 
 	def set_gender
@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
 	  else
 	  	return "Male"
 	  end 
+	end
+
+	def motivational_quote
+		DbcFaker::Quote.quote 
 	end
 end
 
