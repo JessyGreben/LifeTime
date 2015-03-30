@@ -9,10 +9,10 @@
       <h2><%= @user.motivational_quote %></h2>
     </br></br>
       <h1 style="text-align:center;">Resources</h1>
-      <h2><span><a href="<% @user.resource_link %>"><%= @user.resource_title %></a></span></h2>
+      <h2><span><a href="<%= @user.resource_link %>"><%= @user.resource_title %></a></span></h2>
     </br></br>
       <h1 style="text-align:center;">Tips</h1>
-      <h2><span><a href="<% @user.just_the_tip_link %>"><%= @user.just_the_tip_title %></a></span></h2>
+      <li><span><a href="<%= @user.just_the_tip_link %>"><%= @user.just_the_tip_title %></a></span></li>
     </br></br>
     </ul>
   </div>
