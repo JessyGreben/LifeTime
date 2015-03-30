@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
 	def index
-    @user = User.find(session[:id])
+    # @user = User.find(session[:id])
 	end
 
 end
