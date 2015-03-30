@@ -4,11 +4,17 @@
     <h1 style="text-align:center;">Motivation</h1>
     <div class="social">
     </div>
-    <ul id="omnii_setting">
-      <li>Resource</li>
-      <li>Resource</li>
-      <li></li>
-      <li></li>
+    <ul id="setting">
+    </br>
+      <li><%= @user.motivational_quote %></li>
+    </br>
+      <li><%= @user.motivational_quote %></li>
+      </br></br>
+      <li><%= @user.resource[0] %></li>
+      <li><a href=<%= @user.resource[1] %>></a></li>
+      </br></br>
+      <li><%= @user.just_the_tip[0] %></li>
+      <li><a href="<%= @user.just_the_tip[1] %>"></a></li>
     </ul>
   </div>
 </div>
@@ -20,15 +26,15 @@
         <a href="/" class="logo">LifeTime</a>
       </li>
       <li>
-        <a href="#" class="open-left"><img src="../assets/header1.png"></a>
+        <a href="#" class="open-left">Motivation</a>
       </li>
       <li>
         <div class="open-right">
-          <a href="#"><img src="../assets/header1.png"></span></a>
+          <a href="#">Profile</span></a>
         </div>
       </li>
       <li>
-        <a href="#"><img src="../assets/header1.png"></a>
+        <a href="#">Logout</a>
       </li>
     </ul>
   </nav>

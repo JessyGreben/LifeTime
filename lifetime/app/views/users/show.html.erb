@@ -3,7 +3,11 @@
 <br></br>
 <br></br>
 <div id="clock">
-  <%= @user.days.last.display_total_lgl %>
+  <% if @user.days.last.display_total_lgl[0] == '+' %>
+    <span id="plus"><%= @user.days.last.display_total_lgl[0] %></span><%= @user.days.last.display_total_lgl[1..-1] %>
+  <% else %>
+    <span id="minus"><%= @user.days.last.display_total_lgl[0] %></span><%= @user.days.last.display_total_lgl[1..-1] %>
+  <% end %>
 </div>
 <br></br>
 <br></br>
