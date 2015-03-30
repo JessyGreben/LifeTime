@@ -52,10 +52,10 @@ class SessionsController < ApplicationController
   # def failure
   # end
 
-  # def destroy
-  # 	session[:id] = nil
-  # 	redirect_to root_path  
-  # end
+  def destroy
+  	session[:id] = nil
+  	redirect_to root_path  
+  end
 
 end
 
