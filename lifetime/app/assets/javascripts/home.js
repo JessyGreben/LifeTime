@@ -22,6 +22,11 @@ $(document).ready(function() {
       $('#lifetime').css('opacity', ($(document).scrollTop() / 200));
   });
 
+  $('#arrow').on('click', function() {
+    $('html,body').animate({
+      scrollTop: $('#mountain').offset().top
+    }, 1500);
+  })
 
 
 });
