@@ -20,7 +20,6 @@ $(document).ready(function() {
 var openRightMenu = function(){
   $('.menu-right').show();
   $('.menu-right').animate({width:250, avoidTransforms:true }, 750);
-  soundCloudin();
 };
 
 var closeRightMenu = function() {

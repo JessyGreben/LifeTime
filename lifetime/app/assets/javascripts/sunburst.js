@@ -1,10 +1,15 @@
 $(document).ready(function() {
+    // var userId = $('#clock').data().id
+    // console.log(userId)
+    // var route = "/api/users/"+ userId +"/days"
+    // console.log(route)
   $.ajax({
-    url: '/api/users/1/days',
+    url: "/api/users/6/days",
     type: 'GET',
     dataType: 'json'
   })
   .done(function(response) {
+    console.log("success")
 var width = 600,
 height = width,
 radius = width / 2,
@@ -38,7 +43,7 @@ var arc = d3.svg.arc()
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
   // load the data
-  d3.json("http://codepen.io/KenFalcon/pen/XJJYqy.js", function(error, json) {
+  d3.json("https://codepen.io/KenFalcon/pen/XJJYqy.js", function(error, json) {
   var nodes = partition.nodes({children: json});
 
   var path = vis.selectAll("path")

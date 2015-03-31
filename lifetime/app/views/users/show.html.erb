@@ -2,7 +2,7 @@
 <br></br>
 <br></br>
 <br></br>
-<div id="clock">
+<div id="clock" data-id=<%= @user.id %>>
   <% if @user.days.last.display_total_lgl[0] == '+' %>
     <span id="plus"><%= @user.days.last.display_total_lgl[0] %></span><%= @user.days.last.display_total_lgl[1..-1] %>
   <% else %>
