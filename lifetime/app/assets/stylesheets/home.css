@@ -29,6 +29,7 @@ span {
   height: 100%;
   text-align: center;
 }
+
 .fusion {
   height: 550px;
   width: 100%;
@@ -37,24 +38,28 @@ span {
   box-shadow: -1px 0px 15px 9px rgba(0,0,0,0.8);
   background-color: black;
 }
+
 #main {
   background: transparent;
   min-height: 400px;
   height: 1100px;
   padding-top: 10px;
 }
+
 #mountain {
   background: transparent;
   min-height: 400px;
   height: 1100px;
   padding-top: 10px;
 }
+
 #motto {
   height: 100%;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .home_box {
   width: 100%;
   height: 100%;
@@ -64,14 +69,16 @@ span {
   padding-bottom: 25px;
   table-layout: fixed;
 }
+
 .motto_content {
   margin-top: 5%;
   margin-bottom: 5%;
-  font-size: 24px;
+  font-size: 2em;
   color: #99CCFF;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
+
 .inner-fusion {
   margin: 0 auto;
   height: 100%;
@@ -88,6 +95,7 @@ span {
   background-color: white;
   font-family: 'Quicksand', sans-serif;
 }
+
 a {
    color:inherit;
    text-decoration: none;
@@ -115,3 +123,14 @@ a {
   font-size: 10em;
 }
 
+#disclaimer {
+  margin-top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 30%;
+  border: 6px solid black;
+  /*background-color: #99CCFF;*/
+  background-color: white;
+  font-family: 'Quicksand', sans-serif;
+}
