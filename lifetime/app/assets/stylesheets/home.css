@@ -8,18 +8,12 @@ span {
 }
 
 #arrow {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
   /*border: 6px solid green;*/
-  width: 90%;
-  max-width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 }
 
-.make_this_black {
-  background-color: black;
-}
 /**{
   outline: cyan solid 1px;
 }*/
