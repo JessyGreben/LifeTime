@@ -37,7 +37,7 @@ nav a:hover {
 }
 
 .chart {
-  width: 80%;
+  width: 70%;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -67,8 +67,20 @@ nav a:hover {
   text-align:center;
   font-family: 'Quicksand', sans-serif;
 }
+
 .menu-left.open{
   left: 0;
+}
+
+#left_side_bar_content{
+  padding-top: 15%;
+  padding-right: 5%;
+  padding-left: 5%;
+  list-style-type: none;
+  text-align: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .menu-right {
@@ -93,8 +105,13 @@ nav a:hover {
   text-align:center;
   font-family: 'Quicksand', sans-serif;
 }
+
 .menu-right.open{
   right: 0;
+}
+
+#right_side_bar_content{
+  padding-top: 15%;
 }
 
 #profile_image {
@@ -122,17 +139,6 @@ nav a:hover {
   color: #980000;
 }
 /*CLOCK ENDS*/
-
-
-#left_side_bar_content{
-  margin-left: 8%;
-  margin-right: 8%;
-  list-style-type: none;
-  text-align: center;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  width: 80%;
-}
 
 span a:hover {
   text-decoration: underline;
