@@ -80,17 +80,17 @@ $(document).ready(function() {
 
 
 
-    var userId = $('#clock').data().id
-    $.ajax({
-      url: '/api/users/'+ userId +'/steps',
-      type: 'get'
-    })
-    .done(function(serverResponse) {
-      chart(serverResponse);
-    })
-    .fail(function() {
-      console.log("error");
-    });
+    // var userId = $('#clock').data().id
+    // $.ajax({
+    //   url: '/api/users/'+ userId +'/steps',
+    //   type: 'get'
+    // })
+    // .done(function(serverResponse) {
+    //   chart(serverResponse);
+    // })
+    // .fail(function() {
+    //   console.log("error");
+    // });
 
     //  var userId = $('#clock').data().id
     // $.ajax({

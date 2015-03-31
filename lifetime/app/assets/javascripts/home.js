@@ -23,7 +23,7 @@ $(document).ready(function() {
   });
 
   $('#arrow').on('click', function(){
-    $('html,body').animate({scrollTop: $('#mountain').offset().top}, 1500);
+    $('html,body').animate({scrollTop: $('#mountain').offset().top}, 3000);
   });
 
 });
