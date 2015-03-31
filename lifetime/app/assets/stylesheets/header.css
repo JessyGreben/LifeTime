@@ -46,54 +46,55 @@ nav a:hover {
 
 /*Drawers*/
 .menu-left {
-  flex-direction: row:ltr;
-  height:100%;
-  display:none;
-  background-color: black;
-  color: white;
   position: fixed;
-  left:0;
-  z-index: 1;
-  right:auto;
+  top: 0;
+  left: -300px;
   bottom: 0;
-  width:0px;
-  overflow: auto;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-box-shadow: 8px 0px 12px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 8px 0px 12px 0px rgba(0,0,0,0.75);
-  box-shadow: 8px 0px 12px 0px rgba(0,0,0,0.75);
-  text-align:center;
-  font-family: 'Quicksand', sans-serif;
-}
-
-.menu-right {
-  order: 1;
-  display: -webkit-flex:;
-  -webkit-flex-derction: row-reverse;
   height: 100%;
-  display:none;
-  /*flex-direction: row;*/
+  width: 250px;
   background-color: black;
   color: white;
-  position: fixed;
-  right:0;
-  z-index: 1;
-  left:auto;
-  bottom: 0;
-  width:0px;
+
+  z-index: 100;
+
   overflow: auto;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
+  -webkit-transition: left 200ms;
+  transition: left 200ms;
+
   -webkit-box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
   box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
   text-align:center;
   font-family: 'Quicksand', sans-serif;
+}
+.menu-left.open{
+  left: 0;
+}
+
+.menu-right {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  bottom: 0;
+  height: 100%;
+  width: 250px;
+  background-color: black;
+  color: white;
+
+  z-index: 100;
+
+  overflow: auto;
+  -webkit-transition: right 200ms;
+  transition: right 200ms;
+
+  -webkit-box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: -8px 0px 12px 0px rgba(0,0,0,0.75);
+  text-align:center;
+  font-family: 'Quicksand', sans-serif;
+}
+.menu-right.open{
+  right: 0;
 }
 
 #profile_image {

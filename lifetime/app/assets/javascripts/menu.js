@@ -84,41 +84,27 @@ App.renderChart = function(){
   });
 }
 
+App.toggleMenuRight = function() {
+  $('.menu-right').toggleClass('open');
+};
 
+App.toggleMenuLeft = function() {
+  $('.menu-left').toggleClass('open');
+};
 
 $(document).ready(function() {
 
-  $('.open-left').on('click', function(e) {
-    e.preventDefault();
-    if ($('.menu-left').css('width') == '0px') {
-      App.openLeftMenu();
-    }else{
-      App.closeLeftMenu();
-    }
+  $('.open-left').on('click', function(event) {
+    event.preventDefault();
+    App.toggleMenuLeft()
   });
 
-  $('.open-right').on('click', function(e) {
-    e.preventDefault();
-    if ($('.menu-right').css('width') == '0px') {
-      App.openRightMenu();
-    }else{
-      App.closeRightMenu();
-    }
+  $('.open-right a').on('click', function(event) {
+    event.preventDefault();
+    App.toggleMenuRight();
   });
 
   App.renderChart();
-
-    //  var userId = $('#clock').data().id
-    // $.ajax({
-    //   url: '/api/users/'+ userId +'/steps',
-    //   type: 'get'
-    // })
-    // .done(function(serverResponse) {
-    //   chart(serverResponse);
-    // })
-    // .fail(function() {
-    //   console.log("error");
-    // });
 
 });
 
