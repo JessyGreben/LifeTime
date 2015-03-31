@@ -1,3 +1,4 @@
+require 'dbcfaker'
 class User < ActiveRecord::Base
 	has_many :days, dependent: :destroy
 	has_many :activities, through: :days
@@ -27,16 +28,28 @@ class User < ActiveRecord::Base
 	  end
 	end
 
+	# def daily_goal
+	# 	DbcFaker::Goal.goal
+	# end
+
 	def motivational_quote
 		DbcFaker::Quote.quote
 	end
 
-	def resource
-		DbcFaker::Resource.resource
+	def resource_title
+		DbcFaker::Resource.title
 	end
 
-	def just_the_tip
+	def resource_link
+		DbcFaker::Resource.link
+	end
+
+	def just_the_tip_title
 		DbcFaker::Tip.title
+	end
+
+	def just_the_tip_link
+		DbcFaker::Tip.link
 	end
 end
 

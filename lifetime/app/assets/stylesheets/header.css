@@ -62,22 +62,6 @@ nav a:hover {
   font-family: 'Quicksand', sans-serif;
 }
 
-#setting{
-  margin-left: 8%;
-  margin-right: 8%;
-  list-style-type: none;
-}
-
-.dark {
-  background-color: #323949;
-}
-
-.dark input[type=text]{
-  border:1px solid #2a2e31;
-  background-color:#2d3035;
-  color:#505358;
-}
-
 .menu-right {
   order: 1;
   display: -webkit-flex:;
@@ -105,28 +89,11 @@ nav a:hover {
   font-family: 'Quicksand', sans-serif;
 }
 
-.user_settings{
-  height: 75px;
-  width: 75px;
-}
-
-#user_name {
-  margin-top: 10%;
-  margin-right: 10%;
-  float:right;
-}
-
-#name {
-  float: left;
-  margin-top: 10%;
-  margin-left: 10%;
-}
-
 #profile_image {
   width:50%;
   height:50%;
 }
-/*HEADER ENDS*/
+
 /*CLOCK BEGINS*/
 #clock {
   color: black;
@@ -149,8 +116,19 @@ nav a:hover {
 /*CLOCK ENDS*/
 
 
+#left_side_bar_content{
+  margin-left: 8%;
+  margin-right: 8%;
+  list-style-type: none;
+  text-align: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 80%;
+}
 
-
+span a:hover {
+  text-decoration: underline;
+}
 
 
 

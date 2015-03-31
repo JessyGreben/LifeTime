@@ -1,20 +1,19 @@
 <!-- LEFT DRAWER -->
 <div class="menu-left">
   <div>
-    <h1 style="text-align:center;">Motivation</h1>
-    <div class="social">
-    </div>
-    <ul id="setting">
+    <ul id="left_side_bar_content">
+      <h1 style="text-align:center;">Daily Goal</h1>
+      <h2><%= ["Make lunch today instead of eating out!", "Do 10 pushups before bed!", "", "Eat healthy fats today, like an avocado, olive oil, or nuts!", "Smile today!", "Eat lunch outside today!", "Try a new vegetable for dinner!", "Sleep 8 hours tonight!", "Try a new sport this week!", "Stretch for 5 minutes before bed tonight!"].sample %></h2>
     </br>
-      <li><%= @user.motivational_quote %></li>
-    </br>
-      <li><%= @user.motivational_quote %></li>
-      </br></br>
-      <li><%= @user.resource[0] %></li>
-      <li><a href=<%= @user.resource[1] %>></a></li>
-      </br></br>
-      <li><%= @user.just_the_tip[0] %></li>
-      <li><a href="<%= @user.just_the_tip[1] %>"></a></li>
+      <h1 style="text-align:center;">Motivation</h1>
+      <h2><%= @user.motivational_quote %></h2>
+    </br></br>
+      <h1 style="text-align:center;">Resources</h1>
+      <h2><span><a href="<%= @user.resource_link %>"><%= @user.resource_title %></a></span></h2>
+    </br></br>
+      <h1 style="text-align:center;">Tips</h1>
+      <li><span><a href="<%= @user.just_the_tip_link %>"><%= @user.just_the_tip_title %></a></span></li>
+    </br></br>
     </ul>
   </div>
 </div>
@@ -30,7 +29,7 @@
       </li>
       <li>
         <div class="open-right">
-          <a href="#">Profile</span></a>
+          <a href="#">Profile</a>
         </div>
       </li>
       <li>
@@ -44,9 +43,8 @@
   <div>
     <h1><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h1>
       <img id="profile_image" src="http://jawbone.com/<%= @user.image %>" ></br>
-    <div class="user_settings">
-    </div>
     <ul id="user_info">
+    </br>
       <li><h2>Age: <%= @user.age %></h2></li></br>
       <li><h2>Gender: <%= @user.set_gender %></h2></li></br>
       <li><h2>Weight: <%= @user.weight %> lbs</h2></li></br>
