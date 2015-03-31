@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
   end
 
   def get_trends(access_token)
-    @trends_response = HTTParty.get("https://jawbone.com/nudge/api/v.1.1/users/@me/trends?num_buckets=100", :headers => { "Accept" => "application/json", "Host" => "jawbone.com", "Authorization" => "Bearer #{access_token}" })  
+    p @trends_response = HTTParty.get("https://jawbone.com/nudge/api/v.1.1/users/@me/trends?num_buckets=100", :headers => { "Accept" => "application/json", "Host" => "jawbone.com", "Authorization" => "Bearer #{access_token}" })  
     @weight = (@trends_response['data']['data'][0][1]['weight']).to_i
     @height = (@trends_response['data']['data'][0][1]['height']).to_f
     @age = (@trends_response['data']['data'][0][1]['age']).to_i
