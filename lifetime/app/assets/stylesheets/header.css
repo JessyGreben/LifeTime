@@ -36,6 +36,13 @@ nav a:hover {
   font-size: 2em;
 }
 
+.chart {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 
 /*Drawers*/
 .menu-left {
