@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('88888888888');
   $('.open-left').on('click', function(e) {
     e.preventDefault();
     if ($('.menu-left').css('width') == '0px') {
@@ -23,18 +22,59 @@ $(document).ready(function() {
         columns: [
             lgl,
         ],
-        type: 'step' 
+        type: 'bar',
+        labels: true 
         },
-        axis: {
+        grid: {
           y: {
+            lines: [{value: 0}],
             label: {
               text: 'Life gained or lossed (mins)',
               position: 'outer-middle'
-            }
+            },
           }
         }    
       });
     }
+
+//     var chart = function(lgl) { c3.generate({
+//       bindto: '.chart',
+//     data: {
+//         columns: [
+//             lgl,
+//             // ['data2', -50, 150, -150, 150, -50, -150],
+//             // ['data3', -100, 100, -40, 100, -150, -50]
+//         ],
+//         groups: [
+//             ['data1', 'data2']
+//         ],
+//         type: 'bar',
+//         labels: true
+//     },
+//     grid: {
+        
+//       // debugger
+//         y: {
+//           lines: [{value: 0, text: 'Lable 50 for y', position: 'middle'}]
+//         }
+//     }
+// });
+//       }
+
+// regions: [
+//         {axis: 'x', end: 1, class: 'regionX'},
+//         {axis: 'x', start: 2, end: 4, class: 'regionX'},
+//         {axis: 'x', start: 5, class: 'regionX'},
+//         {axis: 'y', end: 50, class: 'regionY'},
+//         {axis: 'y', start: 80, end: 140, class: 'regionY'},
+//         {axis: 'y', start: 400, class: 'regionY'},
+//         {axis: 'y2', end: 900, class: 'regionY2'},
+//         {axis: 'y2', start: 1150, end: 1250, class: 'regionY2'},
+//         {axis: 'y2', start: 1300, class: 'regionY2'},
+//     ]
+
+
+
 
     var userId = $('#clock').data().id
     $.ajax({
