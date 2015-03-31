@@ -38,7 +38,7 @@ var arc = d3.svg.arc()
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
   // load the data
-  d3.json("http://codepen.io/KenFalcon/pen/XJJYqy.js", function(error, json) {
+  d3.json("https://codepen.io/KenFalcon/pen/XJJYqy.js", function(error, json) {
   var nodes = partition.nodes({children: json});
 
   var path = vis.selectAll("path")
