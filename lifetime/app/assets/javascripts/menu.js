@@ -32,9 +32,9 @@ $(document).ready(function() {
                 if(typeof dataPoint == 'string'){
                   return 'black';
                 } else if(dataPoint.value >= 0){
-                  return 'green';
+                  return '#29A329';
                 } else {
-                  return '#980000';
+                  return '#C11919';
                 }
               }
             ]
