@@ -22,8 +22,11 @@ $(document).ready(function() {
         columns: [
             lgl,
         ],
+
         type: 'bar',
-        labels: true 
+        labels: true
+
+
         },
         grid: {
           y: {
@@ -33,9 +36,10 @@ $(document).ready(function() {
               position: 'outer-middle'
             },
           }
-        }    
+        }
       });
     }
+
 
 //     var chart = function(lgl) { c3.generate({
 //       bindto: '.chart',
@@ -52,7 +56,7 @@ $(document).ready(function() {
 //         labels: true
 //     },
 //     grid: {
-        
+
 //       // debugger
 //         y: {
 //           lines: [{value: 0, text: 'Lable 50 for y', position: 'middle'}]
@@ -87,6 +91,19 @@ $(document).ready(function() {
     .fail(function() {
       console.log("error");
     });
+
+    //  var userId = $('#clock').data().id
+    // $.ajax({
+    //   url: '/api/users/'+ userId +'/steps',
+    //   type: 'get'
+    // })
+    // .done(function(serverResponse) {
+    //   chart(serverResponse);
+    // })
+    // .fail(function() {
+    //   console.log("error");
+    // });
+
 });
 
 // Right Drawer
