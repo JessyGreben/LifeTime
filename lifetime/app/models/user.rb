@@ -1,3 +1,4 @@
+require 'dbcfaker'
 class User < ActiveRecord::Base
 	has_many :days, dependent: :destroy
 	has_many :activities, through: :days
@@ -26,6 +27,10 @@ class User < ActiveRecord::Base
 	  	return "Male"
 	  end
 	end
+
+	# def daily_goal
+	# 	DbcFaker::Goal.goal
+	# end
 
 	def motivational_quote
 		DbcFaker::Quote.quote
