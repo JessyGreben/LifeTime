@@ -44,7 +44,7 @@ gem 'pry-debugger'
 # gem 'debugger', group: [:development, :test]
 
 gem 'dbcfaker'
-gem 'faker'
+# gem 'faker'
 gem 'httparty', '~> 0.8.1'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'jawbone'

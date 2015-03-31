@@ -156,3 +156,7 @@
 .c3-chart-arc .c3-gauge-value {
   fill: #000;
   /*  font-size: 28px !important;*/ }
+
+.c3-shape .c3-shape-9 .c3-bar .c3-bar-9 {
+  fill: green;
+}

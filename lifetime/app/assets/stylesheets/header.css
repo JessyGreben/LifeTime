@@ -118,7 +118,7 @@ nav a:hover {
 }
 
 #minus {
-  color: red;
+  color: #980000;
 }
 /*CLOCK ENDS*/
 
@@ -136,7 +136,6 @@ nav a:hover {
 span a:hover {
   text-decoration: underline;
 }
-
 
 
 

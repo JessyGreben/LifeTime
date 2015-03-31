@@ -16,28 +16,39 @@ $(document).ready(function() {
     }
   });
 
-    var chart = function(lgl) { c3.generate({
-      bindto: '.chart',
-      data: {
-        columns: [
-            lgl,
-        ],
-
-        type: 'bar',
-        labels: true
-
-
-        },
-        grid: {
-          y: {
-            lines: [{value: 0}],
-            label: {
-              text: 'Life gained or lossed (mins)',
-              position: 'outer-middle'
-            },
-          }
-        }
-      });
+    var chart = function(lgl) {
+      c3.generate({
+        bindto: '.chart',
+        data: {
+          columns: [
+              lgl,
+          ],
+          type: 'bar',
+          // labels: true,
+          },
+          color: {
+            pattern: [
+              function(dataPoint){
+                if(typeof dataPoint == 'string'){
+                  return 'black';
+                } else if(dataPoint.value >= 0){
+                  return 'green';
+                } else {
+                  return '#980000';
+                }
+              }
+            ]
+          },
+          grid: {
+            y: {
+              lines: [{value: 0}],
+              label: {
+                text: 'Life gained or lossed (mins)',
+                position: 'outer-middle'
+              },
+            }
+          },
+        });
     }
 
 
@@ -80,17 +91,17 @@ $(document).ready(function() {
 
 
 
-    // var userId = $('#clock').data().id
-    // $.ajax({
-    //   url: '/api/users/'+ userId +'/steps',
-    //   type: 'get'
-    // })
-    // .done(function(serverResponse) {
-    //   chart(serverResponse);
-    // })
-    // .fail(function() {
-    //   console.log("error");
-    // });
+    var userId = $('#clock').data().id
+    $.ajax({
+      url: '/api/users/'+ userId +'/steps',
+      type: 'get'
+    })
+    .done(function(serverResponse) {
+      chart(serverResponse);
+    })
+    .fail(function() {
+      console.log("error");
+    });
 
     //  var userId = $('#clock').data().id
     // $.ajax({
