@@ -106,6 +106,25 @@ $(document).ready(function() {
 
   App.renderChart();
 
+  $('.graph').on('click', function(event) {
+  event.preventDefault();
+  var userId = $('.chart').data().userId
+  $.ajax({
+    url: '/users/'+ userId +'/graphs',
+    type: 'GET',
+    dataType: 'json'
+  })
+  .done(function(serverResponse) {
+    console.log("success", serverResponse);
+
+  })
+  .fail(function() {
+    console.log("error");
+  });
+
 });
 
 
+  
+  
+})

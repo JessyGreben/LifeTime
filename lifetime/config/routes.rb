@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/logout', :to => 'sessions#destroy'
 
   resources :users do
+    get 'graphs'
     resources :days do
       resources :activities
     end
