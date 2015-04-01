@@ -104,6 +104,15 @@ $(document).ready(function() {
     App.toggleMenuRight();
   });
 
+  // $('.top-div').click(function(){
+  //   if $('#expectancy').style.display == ""){
+  //     $('#expectancy').style.display = 'none'
+  //     $('#clock').style.display = ''
+  //   } else {
+  //     $('#expectancy').style.display = ''
+  //     $('#clock').style.display = 'none'
+  //   }
+  // })
   App.renderChart();
 
   $('.graph').on('click', function(event) {
@@ -122,9 +131,32 @@ $(document).ready(function() {
     console.log("error");
   });
 
+
+  //   $('#clock').click(function(){
+  //     $('#expectancy').css("display", "block")
+  //   })
+  // })
+
+
+  // $(function(){
+  //   $('.top-div').click(function(){
+  //     $('#expectancy').toggleClass('hide');
+  //   })
+  // })
+
+  // $('#expectancy').on('click', function(){
+  //   $('#expectancy').css("display: none");
+  //   $('#clock').css("display: block");
+  // });
+
+  // $('.intro').on('click', function(){
+  //   $('#clock').css("display: none");
+  //   $('#expectancy').css("display: block");
+  // });
+
 });
 
 
-  
-  
+
+
 })

@@ -80,8 +80,6 @@ class Day < ActiveRecord::Base
     gain_lost
   end
 
-  def display_life_expectancy
-    self.user.days.last.life_expectancy.to_s + "years"
-  end
+
 
 end
