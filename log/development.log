@@ -20318,3 +20318,622 @@ Processing by Api::DaysController#index as JSON
   [1m[36mDay Load (0.7ms)[0m  [1mSELECT "days".* FROM "days"  WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
   [1m[35mActivity Load (0.6ms)[0m  SELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1  [["user_id", 1]]
 Completed 200 OK in 56ms (Views: 51.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-31 18:43:02 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 521ms (Views: 511.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:03 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDay Load (1.1ms)[0m  [1mSELECT "days".* FROM "days"  WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mActivity Load (1.1ms)[0m  SELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 233ms (Views: 73.0ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/assets/running.jpg" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/assets/parallax1.jpeg" for 127.0.0.1 at 2015-03-31 18:43:04 -0700
+
+
+Started GET "/auth/jawbone" for 127.0.0.1 at 2015-03-31 18:43:35 -0700
+
+
+Started GET "/auth/jawbone" for 127.0.0.1 at 2015-03-31 18:43:35 -0700
+
+
+Started GET "/auth/jawbone/callback?state=2a4573d6fe56ae4a0359394d21622401258e38917ea5f426&code=jF_LbmL3sgBFCf9cYFWl6mePDBkTL1CtdMgkwVpDciHFbfxqE4CPrt0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A" for 127.0.0.1 at 2015-03-31 18:43:38 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"2a4573d6fe56ae4a0359394d21622401258e38917ea5f426", "code"=>"jF_LbmL3sgBFCf9cYFWl6mePDBkTL1CtdMgkwVpDciHFbfxqE4CPrt0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A"}
+  [1m[36mAuthorization Load (1.1ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations"  WHERE (uid = 'DZKhP1GKIZJoh9WWNgaYDA')  ORDER BY "authorizations"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to https://localhost:3000/users/1
+Completed 302 Found in 826ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-03-31 18:43:40 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_header.erb (1.0ms)
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 164ms (Views: 162.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users/1/steps" for 127.0.0.1 at 2015-03-31 18:43:40 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mDay Load (0.4ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 1]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-03-31 18:43:40 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDay Load (0.7ms)[0m  [1mSELECT "days".* FROM "days"  WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mActivity Load (1.2ms)[0m  SELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 47ms (Views: 41.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-31 18:46:29 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 263ms (Views: 262.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-31 18:46:31 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 236ms (Views: 235.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mDay Load (0.8ms)[0m  SELECT "days".* FROM "days"  WHERE "days"."user_id" = $1  [["user_id", 1]]
+  [1m[36mActivity Load (0.8ms)[0m  [1mSELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/running.jpg" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/assets/parallax1.jpeg" for 127.0.0.1 at 2015-03-31 18:46:32 -0700
+
+
+Started GET "/auth/jawbone" for 127.0.0.1 at 2015-03-31 18:46:41 -0700
+
+
+Started GET "/auth/jawbone" for 127.0.0.1 at 2015-03-31 18:46:42 -0700
+
+
+Started GET "/auth/jawbone/callback?state=cf4723763658b8d9aaf3be95e0062bf3450a088f8cdd6cb0&code=jF_LbmL3sgBFCf9cYFWl6mePDBkTL1CtANxppVe4MRfFbfxqE4CPrt0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A" for 127.0.0.1 at 2015-03-31 18:46:43 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"cf4723763658b8d9aaf3be95e0062bf3450a088f8cdd6cb0", "code"=>"jF_LbmL3sgBFCf9cYFWl6mePDBkTL1CtANxppVe4MRfFbfxqE4CPrt0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A"}
+  [1m[35mAuthorization Load (0.5ms)[0m  SELECT  "authorizations".* FROM "authorizations"  WHERE (uid = 'DZKhP1GKIZJoh9WWNgaYDA')  ORDER BY "authorizations"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to https://localhost:3000/users/1
+Completed 302 Found in 795ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_header.erb (0.3ms)
+  [1m[36mDay Load (0.5ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 144ms (Views: 142.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+
+
+Started GET "/api/users/1/steps" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDay Load (0.6ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 1]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-03-31 18:46:45 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mDay Load (1.0ms)[0m  SELECT "days".* FROM "days"  WHERE "days"."user_id" = $1  [["user_id", 1]]
+  [1m[36mActivity Load (1.2ms)[0m  [1mSELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 50ms (Views: 45.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/auth/jawbone" for 127.0.0.1 at 2015-03-31 18:47:04 -0700
+
+
+Started GET "/auth/jawbone/callback?state=b2820a70e541d6f191bf265d5e0a95bff1d2ce0cc4856715&code=jF_LbmL3sgBFCf9cYFWl6mePDBkTL1CtdSVc9sr7uJLFbfxqE4CPrt0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A" for 127.0.0.1 at 2015-03-31 18:47:06 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"b2820a70e541d6f191bf265d5e0a95bff1d2ce0cc4856715", "code"=>"jF_LbmL3sgBFCf9cYFWl6mePDBkTL1CtdSVc9sr7uJLFbfxqE4CPrt0Z0mWVMTbFANA90H2Oo1al19znQ-7Xk8ZEG9MffL2b6ZJxVteWY4OGHTTJRkXyBAmhC-Ase2OQJfXm-1Nxg7KnFpAnVUcWgo5ggA1fmIbeIjTa3y_arXL-q55Nwa-HRSgqUJ51op6z5PJTR5thIV1HzWqCRKaa-A"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT  "authorizations".* FROM "authorizations"  WHERE (uid = 'DZKhP1GKIZJoh9WWNgaYDA')  ORDER BY "authorizations"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to https://localhost:3000/users/1
+Completed 302 Found in 798ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_header.erb (0.3ms)
+  [1m[36mDay Load (0.3ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 136ms (Views: 134.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+
+
+Started GET "/api/users/1/steps" for 127.0.0.1 at 2015-03-31 18:47:08 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDay Load (0.4ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 1]]
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-03-31 18:47:09 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mDay Load (0.7ms)[0m  SELECT "days".* FROM "days"  WHERE "days"."user_id" = $1  [["user_id", 1]]
+  [1m[36mActivity Load (1.0ms)[0m  [1mSELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 157ms (Views: 152.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-01 09:22:29 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 202ms (Views: 200.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 247ms (Views: 245.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:31 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDay Load (0.9ms)[0m  [1mSELECT "days".* FROM "days"  WHERE "days"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mActivity Load (0.9ms)[0m  SELECT "activities".* FROM "activities" INNER JOIN "days" ON "activities"."id" = "days"."activity_id" WHERE "days"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 79ms (Views: 72.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/running.jpg" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
+
+
+Started GET "/assets/parallax1.jpeg" for 127.0.0.1 at 2015-04-01 09:22:32 -0700
