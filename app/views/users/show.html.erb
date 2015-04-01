@@ -1,7 +1,6 @@
 <%= render file:"partials/_header" %>
 <br></br>
 <br></br>
-<!-- <a href="#" class="graph">Graph</a> -->
 <br></br>
 <div id="clock" data-id="<%= @user.id %>">
   <% if @user.days.last.display_total_lgl[0] == '+' %>
@@ -14,4 +13,5 @@
 <br></br>
 <br></br>
 <div class="chart" data-user-id="<%= @user.id %>"></div>
+<div class="time-chart" data-user-id="<%= @user.id %>"></div>
 <!-- <div id="sunburst"><img src=""></div> -->
