@@ -36,7 +36,7 @@ nav a:hover {
   font-size: 2em;
 }
 
-.chart {
+.chart, .time-chart {
   width: 70%;
   margin-right: auto;
   margin-left: auto;
