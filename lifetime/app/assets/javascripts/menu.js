@@ -11,51 +11,73 @@ App.barChartColors = function(dataPoint){
 }
 
 App.generateChart = function(lifeGainedLost) {
-  // return c3.generate({
-  //   bindto: '.chart',
-  //   data: {
-  //     columns: 
-  //       [lifeGainedLost]
-  //       ,
-  //     type: 'bar',
-  //   },
-  //   legend: {
-  //     hide: true
-  //   },
-  //   color: {
-  //     pattern: [App.barChartColors]
-  //   },
-  //   grid: {
-  //     y: {
-  //       lines: [{value: 0}]
-  //     }
-  //   },
-  //   axis: {
-  //     x: {
-  //       label: {
-  //         text: 'Last 14 days',
-  //         position: 'outer-center'},
-  //       tick: {
-  //         values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13] 
-  //       }
-  //     },
-  //     y: {       
-  //       label: {
-  //         text: 'Life gained or lossed (mins)',
-  //         position: 'outer-middle'
-  //       },
-  //     }
-  //   },
-  // });
+  $('.chart').html('');
+  $('.chart').data('current', 'barchart');
+  return c3.generate({
+    bindto: '.chart',
+    data: {
+      columns: 
+        [lifeGainedLost]
+        ,
+      type: 'bar',
+    },
+    legend: {
+      hide: true
+    },
+    color: {
+      pattern: [App.barChartColors]
+    },
+    grid: {
+      y: {
+        lines: [{value: 0}]
+      }
+    },
+    axis: {
+      x: {
+        label: {
+          text: 'Last 14 days',
+          position: 'outer-center'},
+        tick: {
+          values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13] 
+        }
+      },
+      y: {       
+        label: {
+          text: 'Life gained or lossed (mins)',
+          position: 'outer-middle'
+        },
+      }
+    },
+    regions: [
+      {axis: 'y', start: -85, end: 88, class: 'regionY5'},
+      {axis: 'y', start: -85, end: 0, class: 'regionY5'},
+      ]
+  });
+};
+
+
+
 //************************ex.chart
-return c3.generate({
-    bindto: '.time-chart',
+App.generateTimeChart = function() {
+  // $('.chart').html('');
+  // $('.chart').data('current', 'timechart');
+  return c3.generate({
+//    bindto: '.chart',
+      bindto: '.time-chart',
     data: {
       x: 'x',
       columns: [
       ['x', '2015-03-21', '2015-03-22', '2015-03-23', '2015-03-24', '2015-03-25', '2015-03-26', '2015-03-27', '2015-03-28', '2015-03-29', '2015-03-30', '2015-03-31', '2015-04-01','2015-04-02', '2015-04-03'],
         ["Day", -72, 82, -72, -72, -72, -72, 58, -72, -72, 82, 58, 58, 82, -72]
       ]
+    },
+    color: {
+      pattern: [App.barChartColors]
+    },
+    grid: {
+      y: {
+        lines: [{value: 0}]
+      }
     },
     legend: {
       hide: true
@@ -68,7 +90,7 @@ return c3.generate({
         },
             type: 'timeseries',
             tick: {
-                format: '%Y-%m-%d'
+                format: '%Y-%m-%d',
             }
         },
         y: {       
@@ -77,10 +99,24 @@ return c3.generate({
           position: 'outer-middle'
         },
       }
-    }
+    },
+    regions: [
+      {axis: 'y', start: -80, end: -55, class: 'regionY'},
+      {axis: 'y', start:-55, end: 0, class: 'regionY2'},
+      {axis: 'y', start: 0, end: 58, class: 'regionY3'},
+      {axis: 'y', start: 58, end: 85, class: 'regionY4'},
+    ]
   });
 };
+App.toggleChart = function(data){
 
+  if('timechart' == $('.chart').data('current'))
+  {
+     App.generateChart(data);
+  } else {
+     App.generateTimeChart();
+  }
+}
 
 App.getLifeGainedLost = function(userId){
   return $.ajax({
@@ -92,6 +128,7 @@ App.getLifeGainedLost = function(userId){
 App.updateChart = function(userId){
   var request = App.getLifeGainedLost();
   request.done(function(serverResponse) {
+    App.toggleChart(serverResponse);
     chart(serverResponse);
   });
   request.fail(function() {
@@ -119,13 +156,14 @@ App.closeLeftMenu = function() {
 };
 
 
-App.renderChart = function(){
+App.renderChart = function(chart){
   var chartNode = $('.chart');
   if (chartNode.length <= 0) return;
   var userId = chartNode.data().userId;
   var request = App.getLifeGainedLost(userId);
   request.done(function(serverResponse) {
     App.generateChart(serverResponse);
+    //App.generateTimeChart();
   });
   request.fail(function() {
     console.log("error");
@@ -140,7 +178,18 @@ App.toggleMenuLeft = function() {
   $('.menu-left').toggleClass('open');
 };
 
-$(document).ready(function() {
+
+var toggleChart = function() {
+  $('.bar-graph').on('click', function(){
+  var userId = $('.chart').data().userId
+    App.updateChart(userId);
+    App.renderChart()
+    // App.toggleChart(App.generateTimeChart());
+  });
+};
+
+$(document).ready(function() {  
+  toggleChart(); 
 
   $('.open-left').on('click', function(event) {
     event.preventDefault();

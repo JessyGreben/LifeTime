@@ -1,6 +1,6 @@
 /*-- Chart --*/
 .c3 svg {
-  font: 10px Helvetica; }
+  font: 16px Helvetica; }
 
 .c3 path, .c3 line {
   fill: none;
@@ -68,8 +68,24 @@
   opacity: 0.3 !important; }
 
 /*-- Region --*/
-.c3-region {
+/*.c3-region {
   fill: steelblue;
+  fill-opacity: 0.1; }*/
+
+.c3-region.regionY {
+  fill: red;
+  fill-opacity: 0.1; }
+
+.c3-region.regionY2 {
+  fill: #ff5e10;
+  fill-opacity: 0.8; }
+
+.c3-region.regionY3 {
+  fill: #593fd1;
+  fill-opacity: 0.1; }
+
+  .c3-region.regionY4 {
+  fill: #35d198;
   fill-opacity: 0.1; }
 
 /*-- Brush --*/
