@@ -10,6 +10,32 @@ App.barChartColors = function(dataPoint){
   }
 }
 
+App.closeRightMenu = function() {
+  $('.menu-right').animate({width:0, avoidTransforms:true }, 750);
+};
+// Left Drawer
+App.openLeftMenu = function(){
+  $('.menu-left').show().animate({width:250, avoidTransforms:true }, 750);
+};
+
+App.closeLeftMenu = function() {
+  $('.menu-left').animate({width:0, avoidTransforms:true }, 750);
+};
+
+App.toggleMenuRight = function() {
+  $('.menu-right').toggleClass('open');
+};
+
+App.toggleMenuLeft = function() {
+  $('.menu-left').toggleClass('open');
+};
+
+// Right Drawer
+App.openRightMenu = function(){
+  $('.menu-right').show().animate({width:250, avoidTransforms:true }, 750);
+  soundCloudin();
+};
+
 App.generateChart = function(lifeGainedLost) {
   $('.chart').html('');
   $('.chart').data('current', 'barchart');
@@ -55,15 +81,13 @@ App.generateChart = function(lifeGainedLost) {
   });
 };
 
-
-
 //************************ex.chart
 App.generateTimeChart = function() {
-  // $('.chart').html('');
-  // $('.chart').data('current', 'timechart');
+  $('.chart').html('');
+  $('.chart').data('current', 'timechart');
   return c3.generate({
-//    bindto: '.chart',
-      bindto: '.time-chart',
+   bindto: '.chart',
+      // bindto: '.time-chart',
     data: {
       x: 'x',
       columns: [
@@ -108,11 +132,12 @@ App.generateTimeChart = function() {
     ]
   });
 };
+
 App.toggleChart = function(data){
 
   if('timechart' == $('.chart').data('current'))
-  {
-     App.generateChart(data);
+  {   
+    App.renderChart();
   } else {
      App.generateTimeChart();
   }
@@ -129,62 +154,30 @@ App.updateChart = function(userId){
   var request = App.getLifeGainedLost();
   request.done(function(serverResponse) {
     App.toggleChart(serverResponse);
-    chart(serverResponse);
   });
   request.fail(function() {
     console.log("error");
   });
 }
 
-
-// Right Drawer
-App.openRightMenu = function(){
-  $('.menu-right').show().animate({width:250, avoidTransforms:true }, 750);
-  soundCloudin();
-};
-
-App.closeRightMenu = function() {
-  $('.menu-right').animate({width:0, avoidTransforms:true }, 750);
-};
-// Left Drawer
-App.openLeftMenu = function(){
-  $('.menu-left').show().animate({width:250, avoidTransforms:true }, 750);
-};
-
-App.closeLeftMenu = function() {
-  $('.menu-left').animate({width:0, avoidTransforms:true }, 750);
-};
-
-
-App.renderChart = function(chart){
+App.renderChart = function(){
   var chartNode = $('.chart');
   if (chartNode.length <= 0) return;
   var userId = chartNode.data().userId;
   var request = App.getLifeGainedLost(userId);
   request.done(function(serverResponse) {
     App.generateChart(serverResponse);
-    //App.generateTimeChart();
+
   });
   request.fail(function() {
     console.log("error");
   });
 }
 
-App.toggleMenuRight = function() {
-  $('.menu-right').toggleClass('open');
-};
-
-App.toggleMenuLeft = function() {
-  $('.menu-left').toggleClass('open');
-};
-
-
 var toggleChart = function() {
   $('.bar-graph').on('click', function(){
   var userId = $('.chart').data().userId
-    App.updateChart(userId);
-    App.renderChart()
-    // App.toggleChart(App.generateTimeChart());
+    App.toggleChart();
   });
 };
 
@@ -221,7 +214,5 @@ $(document).ready(function() {
 
 });
 
-
-  
   
 })
