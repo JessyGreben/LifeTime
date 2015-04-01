@@ -11,25 +11,73 @@ App.barChartColors = function(dataPoint){
 }
 
 App.generateChart = function(lifeGainedLost) {
-  return c3.generate({
-    bindto: '.chart',
+  // return c3.generate({
+  //   bindto: '.chart',
+  //   data: {
+  //     columns: 
+  //       [lifeGainedLost]
+  //       ,
+  //     type: 'bar',
+  //   },
+  //   legend: {
+  //     hide: true
+  //   },
+  //   color: {
+  //     pattern: [App.barChartColors]
+  //   },
+  //   grid: {
+  //     y: {
+  //       lines: [{value: 0}]
+  //     }
+  //   },
+  //   axis: {
+  //     x: {
+  //       label: {
+  //         text: 'Last 14 days',
+  //         position: 'outer-center'},
+  //       tick: {
+  //         values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13] 
+  //       }
+  //     },
+  //     y: {       
+  //       label: {
+  //         text: 'Life gained or lossed (mins)',
+  //         position: 'outer-middle'
+  //       },
+  //     }
+  //   },
+  // });
+//************************ex.chart
+return c3.generate({
+    bindto: '.time-chart',
     data: {
-      columns: [lifeGainedLost],
-      type: 'bar',
-      // labels: true,
+      x: 'x',
+      columns: [
+      ['x', '2015-03-21', '2015-03-22', '2015-03-23', '2015-03-24', '2015-03-25', '2015-03-26', '2015-03-27', '2015-03-28', '2015-03-29', '2015-03-30', '2015-03-31', '2015-04-01','2015-04-02', '2015-04-03'],
+        ["Day", -72, 82, -72, -72, -72, -72, 58, -72, -72, 82, 58, 58, 82, -72]
+      ]
     },
-    color: {
-      pattern: [App.barChartColors]
+    legend: {
+      hide: true
     },
-    grid: {
-      y: {
-        lines: [{value: 0}],
+    axis: {
+        x: {
+          label: {
+          text: 'Last 14 days',
+          position: 'outer-center'
+        },
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d'
+            }
+        },
+        y: {       
         label: {
           text: 'Life gained or lossed (mins)',
           position: 'outer-middle'
         },
       }
-    },
+    }
   });
 };
 
