@@ -180,7 +180,9 @@ span a:hover {
   display: none;
 }
 
-
+.bar-graph:hover {
+  text-decoration: underline;
+}
 
 
 
