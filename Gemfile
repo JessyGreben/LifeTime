@@ -46,11 +46,12 @@ gem 'pry-debugger'
 gem 'dbcfaker'
 # gem 'faker'
 gem 'httparty', '~> 0.8.1'
-gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
 gem 'jawbone'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 	gem 'capybara'
 	gem 'shoulda-matchers', require: false
 	gem 'factory_girl_rails'
