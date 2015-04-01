@@ -47820,3 +47820,1204 @@ ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
   thin (1.6.1) bin/thin:6:in `<top (required)>'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
 
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-04-01 15:34:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered partials/_header.erb (1.0ms)
+  [1m[36mDay Load (0.7ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 646ms (Views: 558.8ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 15:34:20 -0700
+
+
+Started GET "/api/users/3/steps" for 127.0.0.1 at 2015-04-01 15:34:21 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 3]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 15:34:21 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/api/days_controller.rb:3:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  thin (1.6.1) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.1) lib/thin/runner.rb:200:in `run_command'
+  thin (1.6.1) lib/thin/runner.rb:156:in `run!'
+  thin (1.6.1) bin/thin:6:in `<top (required)>'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-04-01 15:36:26 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered partials/_header.erb (0.3ms)
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 530ms (Views: 528.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+
+
+Started GET "/api/users/3/steps" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mDay Load (0.4ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 3]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 15:36:27 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 5ms
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/api/days_controller.rb:3:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  thin (1.6.1) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.1) lib/thin/runner.rb:200:in `run_command'
+  thin (1.6.1) lib/thin/runner.rb:156:in `run!'
+  thin (1.6.1) bin/thin:6:in `<top (required)>'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-04-01 15:37:52 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered partials/_header.erb (0.3ms)
+  [1m[36mDay Load (0.3ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 501ms (Views: 499.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+
+
+Started GET "/api/users/3/steps" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mDay Load (0.6ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 3]]
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 15:37:53 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/api/days_controller.rb:3:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  thin (1.6.1) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.1) lib/thin/runner.rb:200:in `run_command'
+  thin (1.6.1) lib/thin/runner.rb:156:in `run!'
+  thin (1.6.1) bin/thin:6:in `<top (required)>'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-04-01 15:38:05 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered partials/_header.erb (0.5ms)
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 449ms (Views: 446.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:05 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:05 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:05 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+
+
+Started GET "/api/users/3/steps" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mDay Load (0.4ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 3]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 15:38:06 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/api/days_controller.rb:3:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  thin (1.6.1) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.1) lib/thin/runner.rb:200:in `run_command'
+  thin (1.6.1) lib/thin/runner.rb:156:in `run!'
+  thin (1.6.1) bin/thin:6:in `<top (required)>'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-04-01 15:39:38 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered partials/_header.erb (0.3ms)
+  [1m[36mDay Load (0.4ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 497ms (Views: 495.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+
+
+Started GET "/api/users/3/steps" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mDay Load (0.5ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 3]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 15:39:39 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/api/days_controller.rb:3:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  thin (1.6.1) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.1) lib/thin/runner.rb:200:in `run_command'
+  thin (1.6.1) lib/thin/runner.rb:156:in `run!'
+  thin (1.6.1) bin/thin:6:in `<top (required)>'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered partials/_header.erb (0.3ms)
+  [1m[35mDay Load (0.3ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1  [["user_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 443ms (Views: 441.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/api/days.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/c3.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/day.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/sunburst.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/activity.css?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/C3_graphs/c3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/C3_graphs/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/activity.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/api/days.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/day.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/parallax.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/sunburst.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+
+
+Started GET "/api/users/3/steps" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+Processing by Api::UsersController#steps as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mDay Load (0.5ms)[0m  [1mSELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14[0m  [["user_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "days".* FROM "days"  WHERE "days"."user_id" = $1  ORDER BY "days"."id" DESC LIMIT 14  [["user_id", 3]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/users/1/days" for 127.0.0.1 at 2015-04-01 15:41:28 -0700
+Processing by Api::DaysController#index as JSON
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=1:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/api/days_controller.rb:3:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  thin (1.6.1) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.1) lib/thin/runner.rb:200:in `run_command'
+  thin (1.6.1) lib/thin/runner.rb:156:in `run!'
+  thin (1.6.1) bin/thin:6:in `<top (required)>'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+

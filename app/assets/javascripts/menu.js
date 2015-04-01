@@ -42,7 +42,7 @@ App.generateChart = function(lifeGainedLost) {
   return c3.generate({
     bindto: '.chart',
     data: {
-      columns: 
+      columns:
         [lifeGainedLost]
         ,
       type: 'bar',
@@ -64,10 +64,10 @@ App.generateChart = function(lifeGainedLost) {
           text: 'Last 14 days',
           position: 'outer-center'},
         tick: {
-          values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13] 
+          values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
         }
       },
-      y: {       
+      y: {
         label: {
           text: 'Life gained or lossed (mins)',
           position: 'outer-middle'
@@ -117,7 +117,7 @@ App.generateTimeChart = function() {
                 format: '%Y-%m-%d',
             }
         },
-        y: {       
+        y: {
         label: {
           text: 'Life gained or lossed (mins)',
           position: 'outer-middle'
@@ -136,7 +136,7 @@ App.generateTimeChart = function() {
 App.toggleChart = function(data){
 
   if('timechart' == $('.chart').data('current'))
-  {   
+  {
     App.renderChart();
   } else {
      App.generateTimeChart();
@@ -181,8 +181,18 @@ var toggleChart = function() {
   });
 };
 
-$(document).ready(function() {  
-  toggleChart(); 
+var toggleClock = function() {
+  $('.top-div').on('click', function(){
+    $('#expectancy').toggle();
+    $('#clock').toggle();
+  });
+};
+
+$(document).ready(function() {
+  $('#expectancy').hide();
+
+  toggleChart();
+  toggleClock();
 
   $('.open-left').on('click', function(event) {
     event.preventDefault();
@@ -194,15 +204,6 @@ $(document).ready(function() {
     App.toggleMenuRight();
   });
 
-  // $('.top-div').click(function(){
-  //   if $('#expectancy').style.display == ""){
-  //     $('#expectancy').style.display = 'none'
-  //     $('#clock').style.display = ''
-  //   } else {
-  //     $('#expectancy').style.display = ''
-  //     $('#clock').style.display = 'none'
-  //   }
-  // })
   App.renderChart();
 
   $('.graph').on('click', function(event) {
@@ -220,30 +221,5 @@ $(document).ready(function() {
   .fail(function() {
     console.log("error");
   });
-
-
-  //   $('#clock').click(function(){
-  //     $('#expectancy').css("display", "block")
-  //   })
-  // })
-
-
-  // $(function(){
-  //   $('.top-div').click(function(){
-  //     $('#expectancy').toggleClass('hide');
-  //   })
-  // })
-
-  // $('#expectancy').on('click', function(){
-  //   $('#expectancy').css("display: none");
-  //   $('#clock').css("display: block");
-  // });
-
-  // $('.intro').on('click', function(){
-  //   $('#clock').css("display: none");
-  //   $('#expectancy').css("display: block");
-  // });
-
-});
-
+  });
 })

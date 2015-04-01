@@ -175,10 +175,10 @@ span a:hover {
 #year-button:hover {
   text-decoration: underline;
 }
-
+/*
 #expectancy {
   display: none;
-}
+  }*/
 
 .bar-graph:hover {
   text-decoration: underline;
