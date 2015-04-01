@@ -61,7 +61,7 @@ App.generateChart = function(lifeGainedLost) {
     axis: {
       x: {
         label: {
-          text: 'Last 14 days',
+          text: 'Last 14 Days',
           position: 'outer-center'},
         tick: {
           values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -69,7 +69,7 @@ App.generateChart = function(lifeGainedLost) {
       },
       y: {
         label: {
-          text: 'Life gained or lossed (mins)',
+          text: 'Life Gained Or Lost (mins)',
           position: 'outer-middle'
         },
       }
@@ -109,7 +109,7 @@ App.generateTimeChart = function() {
     axis: {
         x: {
           label: {
-          text: 'Last 14 days',
+          text: 'Last 14 Days',
           position: 'outer-center'
         },
             type: 'timeseries',
@@ -119,7 +119,7 @@ App.generateTimeChart = function() {
         },
         y: {
         label: {
-          text: 'Life gained or lossed (mins)',
+          text: 'Life Gained Or Lost (mins)',
           position: 'outer-middle'
         },
       }

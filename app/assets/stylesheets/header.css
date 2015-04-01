@@ -132,20 +132,6 @@ nav a:hover {
   cursor: pointer;
 }
 
-
-/*
-#mycursor {
-  /*cursor: none;*/
-/*  width: 97px;
-  height: 137px;
-  background: url("http://blog.globalsynergyhealthcare.com/wp-content/uploads/2014/10/heart.png") no-repeat left top;
-  position: absolute;
-  display: none;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-}*/
-
 #plus {
   color: #29A329;
 }
@@ -159,26 +145,14 @@ span a:hover {
   text-decoration: underline;
 }
 
-.intro {
-  font-size: .35em;
-  color: gray;
-}
-
-#year-button {
-  font-size: 20px;
+.yourlife {
+  font-family: 'Quicksand', sans-serif;
+  color: black;
   text-align: center;
-  color: gray;
-  font-family: 'Arimo', sans-serif;
-  cursor: pointer;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: .5em;
 }
-
-#year-button:hover {
-  text-decoration: underline;
-}
-/*
-#expectancy {
-  display: none;
-  }*/
 
 .bar-graph:hover {
   text-decoration: underline;

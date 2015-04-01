@@ -4,11 +4,13 @@
 <br></br>
   <div class="top-div">
     <div class='toggleable' id="expectancy">
-      <p>Your life expectancy is </p>
+      <p class="yourlife">Your life expectancy is </p>
+    </br>
       <p><%= @user.display_life_expectancy %></p>
     </div>
-  <!-- </br><p id="year-button">See total life expectancy</p></br></br> -->
     <div class='toggleable' id="clock" data-id="<%= @user.id %>">
+      <p class="yourlife">Your life gained is </p>
+    </br>
       <% if @user.days.last.display_total_lgl[0] == '+' %>
         <span id="plus"><%= @user.days.last.display_total_lgl[0] %></span><%= @user.days.last.display_total_lgl[1..-1] %>
       <% else %>
