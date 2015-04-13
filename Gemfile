@@ -30,7 +30,6 @@ gem 'haml-rails'
 
 gem 'awesome_print'
 
-gem 'pry-debugger'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 # gem 'spring',        group: :development
 
@@ -53,14 +52,15 @@ gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'jawbone'
 
 group :development, :test do
-	gem 'rspec-rails', '~> 3.0'
-	gem 'capybara'
-	gem 'shoulda-matchers', require: false
-	gem 'factory_girl_rails'
-	gem 'selenium-webdriver'
-	gem 'nyan-cat-formatter'
-	gem 'better_errors'
-	gem 'binding_of_caller'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
+  gem 'shoulda-matchers', require: false
+  gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
+  gem 'nyan-cat-formatter'
+  gem 'pry-debugger'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 
