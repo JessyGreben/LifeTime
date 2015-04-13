@@ -48,7 +48,7 @@ span {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .home_box {
@@ -62,8 +62,7 @@ span {
 }
 
 .motto_content {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
   font-size: 2.5em;
   color: white;
   text-align: center;
@@ -96,7 +95,7 @@ a {
 }
 
 #lifetime {
-  margin-top: 30%;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
