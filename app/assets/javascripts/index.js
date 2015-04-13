@@ -18,9 +18,9 @@ $(document).ready(function() {
   //     $('#lifetime').css({opacity: 100-fromtop});
   // });
 
-  $(document).on('scroll', function (e) {
-      $('#lifetime').css('opacity', ($(document).scrollTop() / 200));
-  });
+  // $(document).on('scroll', function (e) {
+  //     $('#lifetime').css('opacity', ($(document).scrollTop() / 200));
+  // });
 
   $('#arrow').on('click', function(){
     $('html,body').animate({scrollTop: $('#mountain').offset().top}, 15000);
