@@ -3,7 +3,7 @@ class Day < ActiveRecord::Base
   belongs_to :activity, dependent: :destroy
 
   before_create :set_life_expectancy
-  after_create :calculate_lgl, :calculate_life_expectancy 
+  after_create :calculate_lgl, :calculate_life_expectancy
 
   def set_life_expectancy
   	self.life_expectancy = 79
@@ -39,15 +39,15 @@ class Day < ActiveRecord::Base
   end
 
   def display_total_lgl(param=self.total_lgl, display_value=[])
-    
+
     total = param.abs
     if total > 31556926
       get_next_time_value(get_divmod_array(total, 31556926), add_time_value_to_display(get_divmod_array(total, 31556926), 'years', display_value))
     elsif total > 86400
       get_next_time_value(get_divmod_array(total, 86400), add_time_value_to_display(get_divmod_array(total, 86400), 'days', display_value))
-    elsif total > 3600 
+    elsif total > 3600
       get_next_time_value(get_divmod_array(total, 3600), add_time_value_to_display(get_divmod_array(total, 3600), 'hours', display_value))
-    elsif total > 60 
+    elsif total > 60
       get_next_time_value(get_divmod_array(total, 60), add_time_value_to_display(get_divmod_array(total, 60), 'mins', display_value))
     else
       display_value << total << "secs"
@@ -56,14 +56,13 @@ class Day < ActiveRecord::Base
     timer = display_value.join(' ')
     display_pos_neg + " " + timer
     # timer.display_pos_neg
-    
-  end
 
+  end
 
   def get_next_time_value(divmod_arr, display_value)
     display_total_lgl(divmod_arr[1], display_value)
   end
-  
+
   def get_divmod_array(total, number)
     divmod_arr = total.divmod(number.to_f)
   end
@@ -72,14 +71,15 @@ class Day < ActiveRecord::Base
     display_value << divmod_arr[0] << time_unit
   end
 
-
   def display_pos_neg(param=self.total_lgl)
-    if param > 0 
+    if param > 0
       gain_lost = "+"
     else
       gain_lost = "-"
     end
     gain_lost
-  end 
+  end
+
+
 
 end

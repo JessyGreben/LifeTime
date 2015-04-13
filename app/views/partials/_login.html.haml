@@ -1,0 +1,30 @@
+#message
+  MAKE SOMETHING BEAUTIFUL!
+#buttons
+  %button#l_button{:type => "button"} Login
+  %button#r_button{:type => "button"} Register
+/ LOGIN BEGIN
+#login{:style => "display: none"}
+  %span{:style => "color: white"}
+    #login-errors{:style => "display:none;"}
+  %form#login_form{:onsubmit => "return false;"}
+    %input#input{:name => "username", :placeholder => "Enter Username", :type => "text"}/
+    %input#input{:name => "password", :placeholder => "Enter Password", :type => "password"}/
+    %input#login_button{:style => "margin-top: 14px", :type => "submit", :value => "Login"}/
+/ LOGIN ENDS
+/ REGISTER BEGIN
+#register{:style => "display: none"}
+  - if @user
+    - @user.errors.full_messages.each do |message|
+      %p= message
+  %form#register_form{:action => "/register", :method => "post"}
+    %input#input{:name => "name", :placeholder => "Enter Name", :type => "text"}/
+    %input#input{:name => "username", :placeholder => "Enter Username", :type => "text"}/
+    %input#input{:name => "password", :placeholder => "Enter Password", :type => "password"}/
+    %input#r_button{:style => "margin-top: 12px", :type => "submit", :value => "Register"}/
+/ REGISTER END
+/ FB BEGIN
+%div
+  - if !session['oauth'][:access_token]
+    %a{:href => "/facebook"}
+      .fb-login-button{"data-auto-logout-link" => "false", "data-max-rows" => "1", "data-show-faces" => "false", "data-size" => "large"}

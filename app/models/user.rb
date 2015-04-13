@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
 	  end
 	end
 
+	def display_life_expectancy
+    self.days.last.life_expectancy.to_s + " years"
+  end
+
 	# def daily_goal
 	# 	DbcFaker::Goal.goal
 	# end

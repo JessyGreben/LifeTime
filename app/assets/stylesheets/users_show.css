@@ -36,7 +36,7 @@ nav a:hover {
   font-size: 2em;
 }
 
-.chart {
+.chart, .time-chart {
   width: 70%;
   margin-right: auto;
   margin-left: auto;
@@ -120,7 +120,7 @@ nav a:hover {
 }
 
 /*CLOCK BEGINS*/
-#clock {
+.toggleable {
   color: black;
   font-size: 90px;
   margin-right: auto;
@@ -129,6 +129,7 @@ nav a:hover {
   width: 80%;
   text-align: center;
   font-family: 'Arimo', sans-serif;
+  cursor: pointer;
 }
 
 #plus {
@@ -144,10 +145,18 @@ span a:hover {
   text-decoration: underline;
 }
 
+.yourlife {
+  font-family: 'Quicksand', sans-serif;
+  color: black;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: .5em;
+}
 
-
-
-
+.bar-graph:hover {
+  text-decoration: underline;
+}
 
 
 
