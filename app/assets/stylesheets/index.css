@@ -9,14 +9,10 @@ span {
 
 #arrow {
   text-align: center;
-  /*border: 6px solid green;*/
   width: 80px;
   height: 80px;
 }
 
-/**{
-  outline: cyan solid 1px;
-}*/
 /*Content*/
 #parallax {
   width: 100%;
@@ -52,8 +48,7 @@ span {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10%;
-  /*margin-bottom: auto;*/
+  padding-top: 5%;
 }
 
 .home_box {
@@ -67,11 +62,9 @@ span {
 }
 
 .motto_content {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
   font-size: 2.5em;
   color: white;
-  /*color: #99CCFF;*/
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
@@ -88,7 +81,6 @@ span {
   text-align: center;
   width: 30%;
   border: 6px solid black;
-  /*background-color: #99CCFF;*/
   background-color: white;
   font-family: 'Quicksand', sans-serif;
 }
@@ -103,7 +95,7 @@ a {
 }
 
 #lifetime {
-  margin-top: 30%;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -113,9 +105,7 @@ a {
   padding-left: 2%;
   width: 80%;
   height: 50%;
-/*  border: 2px solid black;
-  background-color: #99CCFF;*/
-  opacity: 0;
+  opacity: 200;
   font-family: 'Quicksand', sans-serif;
   font-size: 10em;
 }

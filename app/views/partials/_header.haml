@@ -1,0 +1,52 @@
+/ LEFT DRAWER
+.menu-left
+  %div
+    %ul#left_side_bar_content
+      %h1{:style => "text-align:center;"} Daily Goal
+      %h2= ["Make lunch today instead of eating out!", "Do 10 pushups before bed!", "", "Eat healthy fats today, like an avocado, olive oil, or nuts!", "Smile today!", "Eat lunch outside today!", "Try a new vegetable for dinner!", "Sleep 8 hours tonight!", "Try a new sport this week!", "Stretch for 5 minutes before bed tonight!"].sample
+      %h1{:style => "text-align:center;"} Motivation
+      %h2= @user.motivational_quote
+      %h1{:style => "text-align:center;"} Resources
+      %h2
+        %span
+          %a{:href => "#{@user.resource_link}"}= @user.resource_title
+      %h1{:style => "text-align:center;"} Tips
+      %li
+        %span
+          %a{:href => "#{@user.just_the_tip_link}"}= @user.just_the_tip_title
+/ HEADER
+.omnii-header
+  %nav
+    %ul
+      %li
+        %a.logo{:href => "/"} LifeTime
+      %li
+        %a.open-left{:href => "#"} Motivation
+      %li
+        .open-right
+          %a{:href => "#"} Profile
+      %li
+        %a{:href => "/logout"} Logout
+/ RIGHT DRAWER
+.menu-right
+  #right_side_bar_content
+    %h1
+      = @user.firstname.capitalize
+      = @user.lastname.capitalize
+    %img#profile_image{:src => "http://jawbone.com/#{@user.image}"}/
+    %ul#user_info
+      %li
+        %h2
+          Age: #{@user.age}
+      %li
+        %h2
+          Gender: #{@user.set_gender}
+      %li
+        %h2
+          Weight: #{@user.weight} lbs
+      %li
+        %h2
+          Height: #{@user.height}
+      %li
+        %h1
+          %a.bar-graph{:href => "#"} Switch Graph

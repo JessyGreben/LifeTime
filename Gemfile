@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'thin'
 gem 'haml'
+gem 'haml-rails'
 
 gem 'awesome_print'
 
@@ -75,3 +76,7 @@ end
 
 
 
+
+
+
+gem "erb2haml"            # Add this line

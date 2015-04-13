@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   def jawbone_create
     auth_hash = request.env['omniauth.auth']
     access_token = auth_hash["credentials"]["token"]
-    get_trends(access_token)
+    get_jawbone_trends(access_token)
     @authorization = Authorization.where("uid = '#{auth_hash["uid"]}'").first
     if @authorization
       @user = User.find(@authorization.user_id)
