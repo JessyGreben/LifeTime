@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   get '/login', :to => 'sessions#new', :as => :login
-  match '/auth/jawbone/callback', :to => 'sessions#create', via: [:get, :post]
+  match '/auth/jawbone/callback', :to => 'sessions#jawbone_create', via: [:get, :post]
+  match '/auth/fitbit/callback', :to => 'sessions#fitbit_create', via: [:get, :post]
   match '/auth/failure', :to => 'sessions#failure', via: [:get, :post]
   get '/logout', :to => 'sessions#destroy'
 
