@@ -9,6 +9,12 @@ The leading causes of death in the US are cardiovascular disease and cancer. A s
 
 ####Description of application:
 
-Users log in with [Jawbone](https://jawbone.com/). With the step data from Jawbone, users can see a graphical display of how their life style choices impact their health and longevity. Users are able to see a clock that displays how much time has been added or subtracted to their life based on the physical activity and nutritional data from Jawbone. 
+Users log in with the wearable device, [Jawbone](https://jawbone.com/). With the step data from Jawbone, users can see a graphical display of how their life style choices impact their health and longevity. Users are able to see a clock that displays how much time has been added or subtracted to their life based on the physical activity and nutritional data from Jawbone. 
 
 ####How to contribute:
+
+Fork repo, make your changes and make pull request.
+
+####See deployed app:
+
+https://Life-Time.herokuapp.com
