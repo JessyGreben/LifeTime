@@ -79,6 +79,8 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.8)
+    fitgem (0.10.0)
+      oauth
     haml (4.0.6)
       tilt
     haml-rails (0.9.0)
@@ -256,6 +258,7 @@ DEPENDENCIES
   dotenv-rails
   erb2haml
   factory_girl_rails
+  fitgem
   haml
   haml-rails
   httparty (~> 0.8.1)
