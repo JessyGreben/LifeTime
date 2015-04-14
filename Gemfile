@@ -50,6 +50,7 @@ gem 'dbcfaker'
 gem 'httparty', '~> 0.8.1'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'jawbone'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
