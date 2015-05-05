@@ -1,0 +1,721 @@
+  [1m[36m (1037.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (93.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (16.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150327185654)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (151.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "firstname" character varying(255), "lastname" character varying(255), "jid" integer, "age" integer, "life_expectancy" decimal, "life_gained_lost" integer, "gender" boolean, "weight_kgs" integer, "height_meters" decimal, "image" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150327185654"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateActivities (20150327190511)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (40.2ms)[0m  [1mCREATE TABLE "activities" ("id" serial primary key, "steps" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (25.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150327190511"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDays (20150327190923)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (72.5ms)[0m  [1mCREATE TABLE "days" ("id" serial primary key, "user_id" integer, "activity_id" integer, "date" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_days_on_user_id" ON "days"  ("user_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_days_on_activity_id" ON "days"  ("activity_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150327190923"]]
+  [1m[36m (26.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAuthorizations (20150328001113)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (46.8ms)[0m  [1mCREATE TABLE "authorizations" ("id" serial primary key, "provider" character varying(255), "uid" character varying(255), "access_token" character varying(255), "refresh_token" character varying(255), "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_authorizations_on_user_id" ON "authorizations"  ("user_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150328001113"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (50.4ms)[0m  [1mINSERT INTO "users" ("age", "created_at", "firstname", "gender", "height_meters", "image", "jid", "lastname", "life_expectancy", "life_gained_lost", "updated_at", "weight_kgs") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["age", 51], ["created_at", "2015-03-28 02:41:43.438856"], ["firstname", "Jonathan"], ["gender", "f"], ["height_meters", "1.25"], ["image", "http://robohash.org/molestiaedelectusdistinctio.png?size=300x300"], ["jid", 5], ["lastname", "Gagon"], ["life_expectancy", "2460000000.0"], ["life_gained_lost", 22912], ["updated_at", "2015-03-28 02:41:43.438856"], ["weight_kgs", 81]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("age", "created_at", "firstname", "gender", "height_meters", "image", "jid", "lastname", "life_expectancy", "life_gained_lost", "updated_at", "weight_kgs") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["age", 19], ["created_at", "2015-03-28 02:41:43.505152"], ["firstname", "Janet"], ["gender", "f"], ["height_meters", "1.25"], ["image", "http://robohash.org/utdictasoluta.png?size=300x300"], ["jid", 1], ["lastname", "Jones"], ["life_expectancy", "2460000000.0"], ["life_gained_lost", 30102], ["updated_at", "2015-03-28 02:41:43.505152"], ["weight_kgs", 85]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("age", "created_at", "firstname", "gender", "height_meters", "image", "jid", "lastname", "life_expectancy", "life_gained_lost", "updated_at", "weight_kgs") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["age", 45], ["created_at", "2015-03-28 02:41:43.508846"], ["firstname", "Brian"], ["gender", "f"], ["height_meters", "1.25"], ["image", "http://robohash.org/culpapossimussimilique.png?size=300x300"], ["jid", 9], ["lastname", "Holzschuh"], ["life_expectancy", "2460000000.0"], ["life_gained_lost", 6249], ["updated_at", "2015-03-28 02:41:43.508846"], ["weight_kgs", 82]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("age", "created_at", "firstname", "gender", "height_meters", "image", "jid", "lastname", "life_expectancy", "life_gained_lost", "updated_at", "weight_kgs") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["age", 37], ["created_at", "2015-03-28 02:41:43.511936"], ["firstname", "Xi"], ["gender", "f"], ["height_meters", "1.25"], ["image", "http://robohash.org/commodiodioarchitecto.png?size=300x300"], ["jid", 8], ["lastname", "Chheang"], ["life_expectancy", "2460000000.0"], ["life_gained_lost", -49561], ["updated_at", "2015-03-28 02:41:43.511936"], ["weight_kgs", 59]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("age", "created_at", "firstname", "gender", "height_meters", "image", "jid", "lastname", "life_expectancy", "life_gained_lost", "updated_at", "weight_kgs") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["age", 56], ["created_at", "2015-03-28 02:41:43.514941"], ["firstname", "Peter"], ["gender", "f"], ["height_meters", "1.25"], ["image", "http://robohash.org/quaeeligendioccaecati.png?size=300x300"], ["jid", 2], ["lastname", "Brown"], ["life_expectancy", "2460000000.0"], ["life_gained_lost", 68386], ["updated_at", "2015-03-28 02:41:43.514941"], ["weight_kgs", 70]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (21.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 1], ["created_at", "2015-03-28 02:41:43.645179"], ["date", "2015-03-24 09:09:15.000000"], ["updated_at", "2015-03-28 02:41:43.645179"], ["user_id", 1]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 2], ["created_at", "2015-03-28 02:41:43.670474"], ["date", "2015-03-03 10:34:34.000000"], ["updated_at", "2015-03-28 02:41:43.670474"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 3], ["created_at", "2015-03-28 02:41:43.673077"], ["date", "2014-08-28 04:47:35.000000"], ["updated_at", "2015-03-28 02:41:43.673077"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 4], ["created_at", "2015-03-28 02:41:43.675759"], ["date", "2014-11-10 04:42:59.000000"], ["updated_at", "2015-03-28 02:41:43.675759"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 5], ["created_at", "2015-03-28 02:41:43.678645"], ["date", "2014-11-25 05:33:44.000000"], ["updated_at", "2015-03-28 02:41:43.678645"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 6], ["created_at", "2015-03-28 02:41:43.681420"], ["date", "2014-08-03 03:04:18.000000"], ["updated_at", "2015-03-28 02:41:43.681420"], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 7], ["created_at", "2015-03-28 02:41:43.684095"], ["date", "2014-09-08 02:03:37.000000"], ["updated_at", "2015-03-28 02:41:43.684095"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 8], ["created_at", "2015-03-28 02:41:43.686048"], ["date", "2015-03-24 08:30:11.000000"], ["updated_at", "2015-03-28 02:41:43.686048"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 9], ["created_at", "2015-03-28 02:41:43.687887"], ["date", "2014-09-09 23:08:01.000000"], ["updated_at", "2015-03-28 02:41:43.687887"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 10], ["created_at", "2015-03-28 02:41:43.689836"], ["date", "2014-10-28 06:33:30.000000"], ["updated_at", "2015-03-28 02:41:43.689836"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 11], ["created_at", "2015-03-28 02:41:43.691750"], ["date", "2014-09-11 18:48:44.000000"], ["updated_at", "2015-03-28 02:41:43.691750"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 12], ["created_at", "2015-03-28 02:41:43.693639"], ["date", "2014-10-07 09:49:36.000000"], ["updated_at", "2015-03-28 02:41:43.693639"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 13], ["created_at", "2015-03-28 02:41:43.695420"], ["date", "2014-12-08 19:31:32.000000"], ["updated_at", "2015-03-28 02:41:43.695420"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 14], ["created_at", "2015-03-28 02:41:43.697226"], ["date", "2014-07-26 15:40:04.000000"], ["updated_at", "2015-03-28 02:41:43.697226"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 15], ["created_at", "2015-03-28 02:41:43.699092"], ["date", "2014-08-16 10:27:15.000000"], ["updated_at", "2015-03-28 02:41:43.699092"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 16], ["created_at", "2015-03-28 02:41:43.700940"], ["date", "2015-01-28 21:18:58.000000"], ["updated_at", "2015-03-28 02:41:43.700940"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 17], ["created_at", "2015-03-28 02:41:43.702856"], ["date", "2014-12-30 04:09:29.000000"], ["updated_at", "2015-03-28 02:41:43.702856"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 18], ["created_at", "2015-03-28 02:41:43.705125"], ["date", "2014-07-29 23:50:08.000000"], ["updated_at", "2015-03-28 02:41:43.705125"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 19], ["created_at", "2015-03-28 02:41:43.707139"], ["date", "2014-08-08 22:08:18.000000"], ["updated_at", "2015-03-28 02:41:43.707139"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 20], ["created_at", "2015-03-28 02:41:43.708989"], ["date", "2015-02-15 11:31:24.000000"], ["updated_at", "2015-03-28 02:41:43.708989"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 21], ["created_at", "2015-03-28 02:41:43.710868"], ["date", "2015-03-12 18:10:33.000000"], ["updated_at", "2015-03-28 02:41:43.710868"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 22], ["created_at", "2015-03-28 02:41:43.712742"], ["date", "2014-06-08 01:41:56.000000"], ["updated_at", "2015-03-28 02:41:43.712742"], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 23], ["created_at", "2015-03-28 02:41:43.715146"], ["date", "2015-03-01 09:08:52.000000"], ["updated_at", "2015-03-28 02:41:43.715146"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 24], ["created_at", "2015-03-28 02:41:43.717163"], ["date", "2014-06-03 21:30:52.000000"], ["updated_at", "2015-03-28 02:41:43.717163"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 25], ["created_at", "2015-03-28 02:41:43.719010"], ["date", "2014-07-09 09:30:47.000000"], ["updated_at", "2015-03-28 02:41:43.719010"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 26], ["created_at", "2015-03-28 02:41:43.720760"], ["date", "2014-07-05 05:58:56.000000"], ["updated_at", "2015-03-28 02:41:43.720760"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 27], ["created_at", "2015-03-28 02:41:43.722543"], ["date", "2014-07-11 07:14:43.000000"], ["updated_at", "2015-03-28 02:41:43.722543"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 28], ["created_at", "2015-03-28 02:41:43.724295"], ["date", "2014-12-19 10:02:51.000000"], ["updated_at", "2015-03-28 02:41:43.724295"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 29], ["created_at", "2015-03-28 02:41:43.725974"], ["date", "2014-11-07 16:13:20.000000"], ["updated_at", "2015-03-28 02:41:43.725974"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 30], ["created_at", "2015-03-28 02:41:43.727641"], ["date", "2014-08-09 15:16:27.000000"], ["updated_at", "2015-03-28 02:41:43.727641"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 31], ["created_at", "2015-03-28 02:41:43.729328"], ["date", "2014-11-20 17:23:14.000000"], ["updated_at", "2015-03-28 02:41:43.729328"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 32], ["created_at", "2015-03-28 02:41:43.731182"], ["date", "2015-02-20 11:33:25.000000"], ["updated_at", "2015-03-28 02:41:43.731182"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 33], ["created_at", "2015-03-28 02:41:43.732988"], ["date", "2014-12-08 09:16:32.000000"], ["updated_at", "2015-03-28 02:41:43.732988"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 34], ["created_at", "2015-03-28 02:41:43.734809"], ["date", "2014-07-26 04:51:11.000000"], ["updated_at", "2015-03-28 02:41:43.734809"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 35], ["created_at", "2015-03-28 02:41:43.737079"], ["date", "2014-06-27 14:34:09.000000"], ["updated_at", "2015-03-28 02:41:43.737079"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 36], ["created_at", "2015-03-28 02:41:43.739635"], ["date", "2015-02-22 03:14:03.000000"], ["updated_at", "2015-03-28 02:41:43.739635"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 37], ["created_at", "2015-03-28 02:41:43.741642"], ["date", "2015-03-09 15:45:21.000000"], ["updated_at", "2015-03-28 02:41:43.741642"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 38], ["created_at", "2015-03-28 02:41:43.743362"], ["date", "2014-08-26 21:51:47.000000"], ["updated_at", "2015-03-28 02:41:43.743362"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 39], ["created_at", "2015-03-28 02:41:43.745042"], ["date", "2015-02-05 23:54:27.000000"], ["updated_at", "2015-03-28 02:41:43.745042"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 40], ["created_at", "2015-03-28 02:41:43.746754"], ["date", "2014-08-16 01:21:07.000000"], ["updated_at", "2015-03-28 02:41:43.746754"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 41], ["created_at", "2015-03-28 02:41:43.748460"], ["date", "2014-10-13 20:24:53.000000"], ["updated_at", "2015-03-28 02:41:43.748460"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 42], ["created_at", "2015-03-28 02:41:43.750169"], ["date", "2014-09-24 10:11:11.000000"], ["updated_at", "2015-03-28 02:41:43.750169"], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 43], ["created_at", "2015-03-28 02:41:43.752191"], ["date", "2014-06-15 05:35:21.000000"], ["updated_at", "2015-03-28 02:41:43.752191"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 44], ["created_at", "2015-03-28 02:41:43.754051"], ["date", "2015-02-11 17:28:11.000000"], ["updated_at", "2015-03-28 02:41:43.754051"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 45], ["created_at", "2015-03-28 02:41:43.755828"], ["date", "2014-11-23 00:49:12.000000"], ["updated_at", "2015-03-28 02:41:43.755828"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 46], ["created_at", "2015-03-28 02:41:43.757544"], ["date", "2014-07-14 00:01:24.000000"], ["updated_at", "2015-03-28 02:41:43.757544"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 47], ["created_at", "2015-03-28 02:41:43.759265"], ["date", "2015-02-26 12:27:22.000000"], ["updated_at", "2015-03-28 02:41:43.759265"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 48], ["created_at", "2015-03-28 02:41:43.760986"], ["date", "2014-09-15 08:11:42.000000"], ["updated_at", "2015-03-28 02:41:43.760986"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 49], ["created_at", "2015-03-28 02:41:43.762635"], ["date", "2014-10-31 09:16:31.000000"], ["updated_at", "2015-03-28 02:41:43.762635"], ["user_id", 1]]
+  [1m[36m (18.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 50], ["created_at", "2015-03-28 02:41:43.783384"], ["date", "2014-12-19 02:39:10.000000"], ["updated_at", "2015-03-28 02:41:43.783384"], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 51], ["created_at", "2015-03-28 02:41:43.786346"], ["date", "2014-12-03 00:40:16.000000"], ["updated_at", "2015-03-28 02:41:43.786346"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 52], ["created_at", "2015-03-28 02:41:43.789049"], ["date", "2014-11-27 16:45:25.000000"], ["updated_at", "2015-03-28 02:41:43.789049"], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 53], ["created_at", "2015-03-28 02:41:43.791756"], ["date", "2014-07-21 15:15:56.000000"], ["updated_at", "2015-03-28 02:41:43.791756"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 54], ["created_at", "2015-03-28 02:41:43.794434"], ["date", "2015-03-12 23:18:47.000000"], ["updated_at", "2015-03-28 02:41:43.794434"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 55], ["created_at", "2015-03-28 02:41:43.796474"], ["date", "2015-01-16 15:56:38.000000"], ["updated_at", "2015-03-28 02:41:43.796474"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 56], ["created_at", "2015-03-28 02:41:43.798398"], ["date", "2014-07-20 04:46:02.000000"], ["updated_at", "2015-03-28 02:41:43.798398"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 57], ["created_at", "2015-03-28 02:41:43.800265"], ["date", "2014-08-05 21:09:19.000000"], ["updated_at", "2015-03-28 02:41:43.800265"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 58], ["created_at", "2015-03-28 02:41:43.802090"], ["date", "2015-03-05 05:18:36.000000"], ["updated_at", "2015-03-28 02:41:43.802090"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 59], ["created_at", "2015-03-28 02:41:43.803920"], ["date", "2014-08-11 05:43:35.000000"], ["updated_at", "2015-03-28 02:41:43.803920"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 60], ["created_at", "2015-03-28 02:41:43.805746"], ["date", "2015-01-04 22:08:53.000000"], ["updated_at", "2015-03-28 02:41:43.805746"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 61], ["created_at", "2015-03-28 02:41:43.807931"], ["date", "2015-03-03 12:19:40.000000"], ["updated_at", "2015-03-28 02:41:43.807931"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 62], ["created_at", "2015-03-28 02:41:43.809763"], ["date", "2014-08-12 07:35:12.000000"], ["updated_at", "2015-03-28 02:41:43.809763"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 63], ["created_at", "2015-03-28 02:41:43.811491"], ["date", "2015-01-20 00:54:20.000000"], ["updated_at", "2015-03-28 02:41:43.811491"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 64], ["created_at", "2015-03-28 02:41:43.813194"], ["date", "2014-06-04 12:52:31.000000"], ["updated_at", "2015-03-28 02:41:43.813194"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 65], ["created_at", "2015-03-28 02:41:43.814913"], ["date", "2015-01-17 09:57:18.000000"], ["updated_at", "2015-03-28 02:41:43.814913"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 66], ["created_at", "2015-03-28 02:41:43.816637"], ["date", "2014-10-18 15:54:12.000000"], ["updated_at", "2015-03-28 02:41:43.816637"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 67], ["created_at", "2015-03-28 02:41:43.818371"], ["date", "2014-10-25 09:36:52.000000"], ["updated_at", "2015-03-28 02:41:43.818371"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 68], ["created_at", "2015-03-28 02:41:43.820050"], ["date", "2015-02-10 09:18:30.000000"], ["updated_at", "2015-03-28 02:41:43.820050"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 69], ["created_at", "2015-03-28 02:41:43.821727"], ["date", "2014-11-09 17:07:59.000000"], ["updated_at", "2015-03-28 02:41:43.821727"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 70], ["created_at", "2015-03-28 02:41:43.823433"], ["date", "2014-08-12 03:40:01.000000"], ["updated_at", "2015-03-28 02:41:43.823433"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 71], ["created_at", "2015-03-28 02:41:43.825127"], ["date", "2015-01-22 11:59:34.000000"], ["updated_at", "2015-03-28 02:41:43.825127"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 72], ["created_at", "2015-03-28 02:41:43.826820"], ["date", "2015-01-15 20:07:44.000000"], ["updated_at", "2015-03-28 02:41:43.826820"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 73], ["created_at", "2015-03-28 02:41:43.828518"], ["date", "2014-11-16 17:54:24.000000"], ["updated_at", "2015-03-28 02:41:43.828518"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 74], ["created_at", "2015-03-28 02:41:43.830339"], ["date", "2014-10-29 03:17:17.000000"], ["updated_at", "2015-03-28 02:41:43.830339"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 75], ["created_at", "2015-03-28 02:41:43.832047"], ["date", "2014-12-11 10:29:46.000000"], ["updated_at", "2015-03-28 02:41:43.832047"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 76], ["created_at", "2015-03-28 02:41:43.833759"], ["date", "2015-02-23 13:13:36.000000"], ["updated_at", "2015-03-28 02:41:43.833759"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 77], ["created_at", "2015-03-28 02:41:43.835501"], ["date", "2015-01-22 03:27:15.000000"], ["updated_at", "2015-03-28 02:41:43.835501"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 78], ["created_at", "2015-03-28 02:41:43.837220"], ["date", "2014-09-22 07:20:45.000000"], ["updated_at", "2015-03-28 02:41:43.837220"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 79], ["created_at", "2015-03-28 02:41:43.838952"], ["date", "2014-06-14 21:21:40.000000"], ["updated_at", "2015-03-28 02:41:43.838952"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 80], ["created_at", "2015-03-28 02:41:43.840690"], ["date", "2014-08-02 23:37:42.000000"], ["updated_at", "2015-03-28 02:41:43.840690"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 81], ["created_at", "2015-03-28 02:41:43.842381"], ["date", "2014-08-24 16:22:45.000000"], ["updated_at", "2015-03-28 02:41:43.842381"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 82], ["created_at", "2015-03-28 02:41:43.844067"], ["date", "2014-07-09 23:24:53.000000"], ["updated_at", "2015-03-28 02:41:43.844067"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 83], ["created_at", "2015-03-28 02:41:43.845737"], ["date", "2014-06-08 12:45:14.000000"], ["updated_at", "2015-03-28 02:41:43.845737"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 84], ["created_at", "2015-03-28 02:41:43.847413"], ["date", "2014-10-16 01:42:02.000000"], ["updated_at", "2015-03-28 02:41:43.847413"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 85], ["created_at", "2015-03-28 02:41:43.849110"], ["date", "2014-07-21 19:44:27.000000"], ["updated_at", "2015-03-28 02:41:43.849110"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 86], ["created_at", "2015-03-28 02:41:43.850779"], ["date", "2014-08-25 06:46:18.000000"], ["updated_at", "2015-03-28 02:41:43.850779"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 87], ["created_at", "2015-03-28 02:41:43.852469"], ["date", "2015-03-20 21:56:14.000000"], ["updated_at", "2015-03-28 02:41:43.852469"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 88], ["created_at", "2015-03-28 02:41:43.854138"], ["date", "2014-08-07 15:15:00.000000"], ["updated_at", "2015-03-28 02:41:43.854138"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 89], ["created_at", "2015-03-28 02:41:43.855808"], ["date", "2014-08-13 21:59:55.000000"], ["updated_at", "2015-03-28 02:41:43.855808"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 90], ["created_at", "2015-03-28 02:41:43.857486"], ["date", "2014-08-03 06:46:35.000000"], ["updated_at", "2015-03-28 02:41:43.857486"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 91], ["created_at", "2015-03-28 02:41:43.859158"], ["date", "2014-09-22 19:22:09.000000"], ["updated_at", "2015-03-28 02:41:43.859158"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 92], ["created_at", "2015-03-28 02:41:43.860824"], ["date", "2014-12-27 10:32:56.000000"], ["updated_at", "2015-03-28 02:41:43.860824"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 93], ["created_at", "2015-03-28 02:41:43.862498"], ["date", "2014-06-23 09:14:18.000000"], ["updated_at", "2015-03-28 02:41:43.862498"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 94], ["created_at", "2015-03-28 02:41:43.864173"], ["date", "2015-01-23 21:05:50.000000"], ["updated_at", "2015-03-28 02:41:43.864173"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 95], ["created_at", "2015-03-28 02:41:43.865840"], ["date", "2015-01-14 00:33:43.000000"], ["updated_at", "2015-03-28 02:41:43.865840"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 96], ["created_at", "2015-03-28 02:41:43.867489"], ["date", "2014-12-25 04:46:21.000000"], ["updated_at", "2015-03-28 02:41:43.867489"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 97], ["created_at", "2015-03-28 02:41:43.869179"], ["date", "2014-10-21 07:28:40.000000"], ["updated_at", "2015-03-28 02:41:43.869179"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 98], ["created_at", "2015-03-28 02:41:43.870894"], ["date", "2014-12-09 13:47:52.000000"], ["updated_at", "2015-03-28 02:41:43.870894"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["activity_id", 99], ["created_at", "2015-03-28 02:41:43.872649"], ["date", "2014-09-04 14:57:15.000000"], ["updated_at", "2015-03-28 02:41:43.872649"], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "days" ("activity_id", "created_at", "date", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["activity_id", 100], ["created_at", "2015-03-28 02:41:43.874802"], ["date", "2014-09-26 01:36:07.000000"], ["updated_at", "2015-03-28 02:41:43.874802"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (13.3ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.912020"], ["steps", 746], ["updated_at", "2015-03-28 02:41:43.912020"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.928384"], ["steps", 8500], ["updated_at", "2015-03-28 02:41:43.928384"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.930948"], ["steps", 9297], ["updated_at", "2015-03-28 02:41:43.930948"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.933359"], ["steps", 7058], ["updated_at", "2015-03-28 02:41:43.933359"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.935733"], ["steps", 2017], ["updated_at", "2015-03-28 02:41:43.935733"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.937773"], ["steps", 8974], ["updated_at", "2015-03-28 02:41:43.937773"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.939491"], ["steps", 6240], ["updated_at", "2015-03-28 02:41:43.939491"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.942203"], ["steps", 8308], ["updated_at", "2015-03-28 02:41:43.942203"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.944073"], ["steps", 8359], ["updated_at", "2015-03-28 02:41:43.944073"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.945626"], ["steps", 4562], ["updated_at", "2015-03-28 02:41:43.945626"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.947110"], ["steps", 4309], ["updated_at", "2015-03-28 02:41:43.947110"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.948589"], ["steps", 6370], ["updated_at", "2015-03-28 02:41:43.948589"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.950119"], ["steps", 4778], ["updated_at", "2015-03-28 02:41:43.950119"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.951638"], ["steps", 2586], ["updated_at", "2015-03-28 02:41:43.951638"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.953090"], ["steps", 1553], ["updated_at", "2015-03-28 02:41:43.953090"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.954516"], ["steps", 5726], ["updated_at", "2015-03-28 02:41:43.954516"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.955979"], ["steps", 6513], ["updated_at", "2015-03-28 02:41:43.955979"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.957636"], ["steps", 9756], ["updated_at", "2015-03-28 02:41:43.957636"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.959131"], ["steps", 9750], ["updated_at", "2015-03-28 02:41:43.959131"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.960595"], ["steps", 3574], ["updated_at", "2015-03-28 02:41:43.960595"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.962197"], ["steps", 1903], ["updated_at", "2015-03-28 02:41:43.962197"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.963881"], ["steps", 8131], ["updated_at", "2015-03-28 02:41:43.963881"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.965403"], ["steps", 9004], ["updated_at", "2015-03-28 02:41:43.965403"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.966889"], ["steps", 9406], ["updated_at", "2015-03-28 02:41:43.966889"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.968490"], ["steps", 3211], ["updated_at", "2015-03-28 02:41:43.968490"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.969980"], ["steps", 5841], ["updated_at", "2015-03-28 02:41:43.969980"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.971322"], ["steps", 8582], ["updated_at", "2015-03-28 02:41:43.971322"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.972639"], ["steps", 9409], ["updated_at", "2015-03-28 02:41:43.972639"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.973942"], ["steps", 9137], ["updated_at", "2015-03-28 02:41:43.973942"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.975248"], ["steps", 5185], ["updated_at", "2015-03-28 02:41:43.975248"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.976546"], ["steps", 9055], ["updated_at", "2015-03-28 02:41:43.976546"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.977832"], ["steps", 1942], ["updated_at", "2015-03-28 02:41:43.977832"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.979127"], ["steps", 7779], ["updated_at", "2015-03-28 02:41:43.979127"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.980418"], ["steps", 6812], ["updated_at", "2015-03-28 02:41:43.980418"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.981778"], ["steps", 5202], ["updated_at", "2015-03-28 02:41:43.981778"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.983094"], ["steps", 928], ["updated_at", "2015-03-28 02:41:43.983094"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.984441"], ["steps", 1021], ["updated_at", "2015-03-28 02:41:43.984441"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.985855"], ["steps", 8687], ["updated_at", "2015-03-28 02:41:43.985855"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.987160"], ["steps", 2443], ["updated_at", "2015-03-28 02:41:43.987160"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.988444"], ["steps", 3090], ["updated_at", "2015-03-28 02:41:43.988444"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.989730"], ["steps", 1744], ["updated_at", "2015-03-28 02:41:43.989730"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.991022"], ["steps", 8944], ["updated_at", "2015-03-28 02:41:43.991022"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.992304"], ["steps", 3431], ["updated_at", "2015-03-28 02:41:43.992304"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.993596"], ["steps", 8918], ["updated_at", "2015-03-28 02:41:43.993596"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.994872"], ["steps", 6241], ["updated_at", "2015-03-28 02:41:43.994872"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.996162"], ["steps", 5573], ["updated_at", "2015-03-28 02:41:43.996162"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:43.997439"], ["steps", 6276], ["updated_at", "2015-03-28 02:41:43.997439"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:43.998725"], ["steps", 8167], ["updated_at", "2015-03-28 02:41:43.998725"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.000005"], ["steps", 8260], ["updated_at", "2015-03-28 02:41:44.000005"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.001308"], ["steps", 3185], ["updated_at", "2015-03-28 02:41:44.001308"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.002596"], ["steps", 6866], ["updated_at", "2015-03-28 02:41:44.002596"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.003881"], ["steps", 6925], ["updated_at", "2015-03-28 02:41:44.003881"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.005169"], ["steps", 6977], ["updated_at", "2015-03-28 02:41:44.005169"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.006446"], ["steps", 9291], ["updated_at", "2015-03-28 02:41:44.006446"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.008130"], ["steps", 3690], ["updated_at", "2015-03-28 02:41:44.008130"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.009595"], ["steps", 6556], ["updated_at", "2015-03-28 02:41:44.009595"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.011163"], ["steps", 3018], ["updated_at", "2015-03-28 02:41:44.011163"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.012792"], ["steps", 2752], ["updated_at", "2015-03-28 02:41:44.012792"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.014283"], ["steps", 5787], ["updated_at", "2015-03-28 02:41:44.014283"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.015764"], ["steps", 4522], ["updated_at", "2015-03-28 02:41:44.015764"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.017287"], ["steps", 9578], ["updated_at", "2015-03-28 02:41:44.017287"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.019182"], ["steps", 9786], ["updated_at", "2015-03-28 02:41:44.019182"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.020753"], ["steps", 8709], ["updated_at", "2015-03-28 02:41:44.020753"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.022245"], ["steps", 6367], ["updated_at", "2015-03-28 02:41:44.022245"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.023810"], ["steps", 3127], ["updated_at", "2015-03-28 02:41:44.023810"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.025299"], ["steps", 7572], ["updated_at", "2015-03-28 02:41:44.025299"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.026768"], ["steps", 1719], ["updated_at", "2015-03-28 02:41:44.026768"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.028230"], ["steps", 4863], ["updated_at", "2015-03-28 02:41:44.028230"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.029680"], ["steps", 4146], ["updated_at", "2015-03-28 02:41:44.029680"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.031134"], ["steps", 5436], ["updated_at", "2015-03-28 02:41:44.031134"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.032598"], ["steps", 732], ["updated_at", "2015-03-28 02:41:44.032598"]]
+  [1m[36m (29.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.063315"], ["steps", 8495], ["updated_at", "2015-03-28 02:41:44.063315"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.065885"], ["steps", 933], ["updated_at", "2015-03-28 02:41:44.065885"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.068334"], ["steps", 7211], ["updated_at", "2015-03-28 02:41:44.068334"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.070694"], ["steps", 7611], ["updated_at", "2015-03-28 02:41:44.070694"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.073169"], ["steps", 8521], ["updated_at", "2015-03-28 02:41:44.073169"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.075652"], ["steps", 6999], ["updated_at", "2015-03-28 02:41:44.075652"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.077433"], ["steps", 972], ["updated_at", "2015-03-28 02:41:44.077433"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.079008"], ["steps", 4964], ["updated_at", "2015-03-28 02:41:44.079008"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.080597"], ["steps", 7553], ["updated_at", "2015-03-28 02:41:44.080597"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.082185"], ["steps", 9220], ["updated_at", "2015-03-28 02:41:44.082185"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.083915"], ["steps", 2015], ["updated_at", "2015-03-28 02:41:44.083915"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.085486"], ["steps", 3618], ["updated_at", "2015-03-28 02:41:44.085486"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.087150"], ["steps", 6527], ["updated_at", "2015-03-28 02:41:44.087150"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.088828"], ["steps", 9785], ["updated_at", "2015-03-28 02:41:44.088828"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (24.0ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.093638"], ["steps", 2831], ["updated_at", "2015-03-28 02:41:44.093638"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.120458"], ["steps", 9241], ["updated_at", "2015-03-28 02:41:44.120458"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.122993"], ["steps", 5698], ["updated_at", "2015-03-28 02:41:44.122993"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.125364"], ["steps", 978], ["updated_at", "2015-03-28 02:41:44.125364"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.127787"], ["steps", 4074], ["updated_at", "2015-03-28 02:41:44.127787"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.130136"], ["steps", 2261], ["updated_at", "2015-03-28 02:41:44.130136"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.132473"], ["steps", 7758], ["updated_at", "2015-03-28 02:41:44.132473"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.134350"], ["steps", 9106], ["updated_at", "2015-03-28 02:41:44.134350"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.136056"], ["steps", 8386], ["updated_at", "2015-03-28 02:41:44.136056"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.137562"], ["steps", 3069], ["updated_at", "2015-03-28 02:41:44.137562"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.139079"], ["steps", 3339], ["updated_at", "2015-03-28 02:41:44.139079"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.140648"], ["steps", 8214], ["updated_at", "2015-03-28 02:41:44.140648"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.142185"], ["steps", 5432], ["updated_at", "2015-03-28 02:41:44.142185"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-03-28 02:41:44.143687"], ["steps", 635], ["updated_at", "2015-03-28 02:41:44.143687"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "steps", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-03-28 02:41:44.145259"], ["steps", 3976], ["updated_at", "2015-03-28 02:41:44.145259"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-27 19:45:14 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (uninitialized constant HomeController):
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:238:in `const_get'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:238:in `block in constantize'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:78:in `controller_reference'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:68:in `controller'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  thin (1.6.2) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.2) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.2) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.2) lib/thin/connection.rb:53:in `process'
+  thin (1.6.2) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.2) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.2) lib/thin/server.rb:162:in `start'
+  thin (1.6.2) lib/thin/controllers/controller.rb:87:in `start'
+  thin (1.6.2) lib/thin/runner.rb:199:in `run_command'
+  thin (1.6.2) lib/thin/runner.rb:155:in `run!'
+  thin (1.6.2) bin/thin:6:in `<top (required)>'
+  /Users/rebeccaholzchuh/.rbenv/versions/2.0.0-p353/bin/thin:23:in `load'
+  /Users/rebeccaholzchuh/.rbenv/versions/2.0.0-p353/bin/thin:23:in `<main>'
+
+
+  Rendered /Users/rebeccaholzchuh/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/rebeccaholzchuh/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /Users/rebeccaholzchuh/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (36.3ms)
+  Rendered /Users/rebeccaholzchuh/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (149.0ms)
+
+
+Started GET "/auth/jawbone" for 127.0.0.1 at 2015-03-27 19:45:34 -0700
